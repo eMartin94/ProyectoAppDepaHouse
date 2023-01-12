@@ -33,4 +33,9 @@
     <string name="txt_image">Imagen</string>
     <string name="txt_price">Precio</string>
     <string name="txt_description">Descripcion</string>
+
+    <!--    lista de departamentos-->
+    <string name="txt_all_properties">Todas las propiedades</string>
+    <string name="txt_list_of_images">Lista de imagenes</string>
+
 </resources>
