@@ -4,6 +4,11 @@
     <!--    Texto del Login-->
     <string name="txt_name_login">Nombre</string>
     <string name="txt_password_login">Contraseña</string>
+    <string name="txt_recordarme">Recordarme</string>
+    <string name="txt_recuperarcontrasenia">Recuperar Contraseña</string>
+    <string name="txt_iniciarSesion">Iniciar Sesión</string>
+
+    <!--    texto del registro-->
 
 
 </resources>
