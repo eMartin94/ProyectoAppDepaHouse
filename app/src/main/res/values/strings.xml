@@ -7,8 +7,48 @@
     <string name="txt_recordarme">Recordarme</string>
     <string name="txt_recuperarcontrasenia">Recuperar Contraseña</string>
     <string name="txt_iniciarSesion">Iniciar Sesión</string>
+    <string name="txt_google">Google</string>
+    <string name="txt_noestasRegistrado_Registrate">¿No estas Registrado? Registrate</string>
 
     <!--    texto del registro-->
+    <string name="txt_name">Nombre</string>
+    <string name="txt_lastname">Apellido</string>
+    <string name="txt_email">Correo</string>
+    <string name="txt_password">Contraseña</string>
+    <string name="txt_sign_up">Registrar</string>
+    <string name="txt_button_google">Google</string>
+    <string name="txt_isRegistered">¿ya esta registrado? Login</string>
 
+    <!--    Mensaje de Confirmacion-->
+    <string name="txt_alert_successfulRecord">Registro Exitoso Aceptar</string>
+    <string name="txt_is_registered">¿Ya esta registrado? Login</string>
 
+    <!--    Pantalla principal-->
+    <string name="txt_welcome_user">Bienvenido Usuario</string>
+    <string name="txt_search_here">Buscar Aqui</string>
+    <string name="txt_category_1">Categoria 1</string>
+    <string name="txt_category_2">Categoria 2</string>
+    <string name="txt_category_3">Categoria 3</string>
+    <string name="txt_more_properties">Mas Propiedades</string>
+    <string name="txt_image">Imagen</string>
+    <string name="txt_price">Precio</string>
+    <string name="txt_description">Descripcion</string>
+
+    <!--    lista de departamentos-->
+    <string name="txt_all_properties">Todas las propiedades</string>
+    <string name="txt_list_of_images">Lista de imagenes</string>
+
+    <!--    Texto Detalles-->
+    <string name="txt_detail">Detalles</string>
+    <string name="txt_Image">Imagen</string>
+    <string name="txt_buy">Comprar</string>
+    <string name="txt_type_department">Dpto. 2 habitaciones</string>
+    <string name="txt_place">San isidro, Lima</string>
+    <string name="txt_Price">Precio</string>
+    <string name="txt_account">S/. 300000.00</string>
+    <string name="txt_specifications">Especificaciones</string>
+    <string name="txt_room_bathroom_swimming_pool">habitacion baño piscina</string>
+    <string name="txt_Location">Ubicacion</string>
+    <string name="txt_map">Mapa</string>
+    
 </resources>
