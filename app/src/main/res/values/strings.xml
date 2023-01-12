@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">ProyectoAppDepaHouse</string>
+
+    <!--    Texto del Login-->
+    <string name="txt_name_login">Nombre</string>
+    <string name="txt_password_login">Contraseña</string>
+
+
 </resources>
