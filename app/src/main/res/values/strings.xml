@@ -38,5 +38,16 @@
     <string name="txt_all_properties">Todas las propiedades</string>
     <string name="txt_list_of_images">Lista de imagenes</string>
 
-
+    <!--    Texto Detalles-->
+    <string name="txt_detail">Detalles</string>
+    <string name="txt_Image">Imagen</string>
+    <string name="txt_buy">Comprar</string>
+    <string name="txt_type_department">Dpto. 2 habitaciones</string>
+    <string name="txt_place">San isidro, Lima</string>
+    <string name="txt_Price">Precio</string>
+    <string name="txt_account">S/. 300000.00</string>
+    <string name="txt_specifications">Especificaciones</string>
+    <string name="txt_room_bathroom_swimming_pool">habitacion baño piscina</string>
+    <string name="txt_Location">Ubicacion</string>
+    <string name="txt_map">Mapa</string>
 </resources>
