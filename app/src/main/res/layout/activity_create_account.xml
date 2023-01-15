@@ -38,7 +38,7 @@
         android:layout_height="41dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Nombres"
+        android:hint="@string/txt_name_register"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/editTextTextPersonLastNames"
         app:layout_constraintHorizontal_bias="1.0"

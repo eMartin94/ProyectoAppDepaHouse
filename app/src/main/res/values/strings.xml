@@ -8,13 +8,14 @@
     <string name="txt_recuperarcontrasenia">Recuperar Contraseña</string>
     <string name="txt_iniciarSesion">Iniciar Sesión</string>
     <string name="txt_google">Google</string>
-    <string name="txt_noestasRegistrado_Registrate">¿No estas Registrado? Registrate</string>
+    <string name="txt_noestasRegistrado">¿No estas Registrado? </string>
+    <string name="txt_noestasRegistrado_Registrate">REGISTRATE</string>
 
     <!--    texto del registro-->
-    <string name="txt_name">Nombre</string>
-    <string name="txt_lastname">Apellido</string>
-    <string name="txt_email">Correo</string>
-    <string name="txt_password">Contraseña</string>
+    <string name="txt_name_register">Nombre</string>
+    <string name="txt_lastname_register">Apellido</string>
+    <string name="txt_email_register">Correo</string>
+    <string name="txt_password_register">Contraseña</string>
     <string name="txt_sign_up">Registrar</string>
     <string name="txt_button_google">Google</string>
     <string name="txt_isRegistered">¿ya esta registrado?</string>
