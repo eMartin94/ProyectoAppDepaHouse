@@ -2,29 +2,30 @@
 
     <string name="app_name">ProyectoAppDepaHouse</string>
 
+    <string name="name_logo">DepaHouse</string>
+
     <!--    Texto del Login-->
-    <string name="txt_user_login">Usuario</string>
+    <string name="txt_user_login">Correo electrónico</string>
     <string name="txt_password_login">Contraseña</string>
     <string name="txt_recordarme">Recordarme</string>
-    <string name="txt_recuperarcontrasenia">Recuperar Contraseña</string>
+    <string name="txt_recuperarPassword">¿Olvidaste tu contraseña?</string>
     <string name="txt_iniciarSesion">Iniciar Sesión</string>
     <string name="txt_google">Google</string>
     <string name="txt_noestasRegistrado">¿No estas Registrado? </string>
-    <string name="txt_noestasRegistrado_Registrate">REGISTRATE</string>
+    <string name="txt_noestasRegistrado_Registrate">REGÍSTRATE</string>
 
     <!--    texto del registro-->
-    <string name="txt_name_register">Nombre</string>
-    <string name="txt_lastname_register">Apellido</string>
-    <string name="txt_email_register">Correo</string>
+    <string name="txt_nameuser_register">Nombre de usuario</string>
+    <string name="txt_email_register">Correo electrónico</string>
     <string name="txt_password_register">Contraseña</string>
-    <string name="txt_sign_up_register">REGISTRAR</string>
+    <string name="txt_confirm_password">Confirmar contraseña</string>
+    <string name="txt_sign_up">Registrar</string>
     <string name="txt_button_google">Google</string>
-    <string name="txt_isRegistered">¿ya esta registrado?</string>
-    <string name="txt_isRegistered_login">LOGIN</string>
+    <string name="txt_isRegistered">¿Ya esta registrado?</string>
+    <string name="txt_isRegistered_login">INICIAR SESIÓN</string>
 
     <!--    Mensaje de Confirmacion-->
     <string name="txt_alert_successfulRecord">Registro Exitoso Aceptar</string>
-    <string name="txt_is_registered">¿Ya esta registrado? Login</string>
 
     <!--    Pantalla principal-->
     <string name="txt_welcome_user">Bienvenido Usuario</string>
