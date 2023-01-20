@@ -36,7 +36,7 @@ class LoginActivity : AppCompatActivity() {
                 mEmail.isEmpty() || mPassword.isEmpty() -> {
 
                     Toast.makeText(
-                        baseContext, "Authentication failed.",
+                        baseContext, "Correo contraseña incorrectos",
                         Toast.LENGTH_SHORT
                     ).show()
                 }
@@ -94,6 +94,6 @@ class LoginActivity : AppCompatActivity() {
     private fun reload() {
 
         val i = Intent(this, MainActivity::class.java)
-        this.startActivity(i)
+        startActivity(i)
     }
 }
