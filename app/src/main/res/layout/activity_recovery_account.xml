@@ -4,21 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
-    android:orientation="vertical"
-    tools:context=".CreateAccountActivity">
+    tools:context=".RecoveryAccountActivity">
 
     <LinearLayout
         android:id="@+id/linearLayout3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="40dp"
         android:gravity="center"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-
 
         <ImageView
             android:id="@+id/imageView2"
@@ -52,85 +49,65 @@
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
+        app:layout_constraintVertical_bias="0.269">
 
-        <EditText
-            android:id="@+id/edtUsername"
+        <TextView
+            android:id="@+id/texttitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="24dp"
-            android:layout_marginRight="24dp"
-            android:ems="10"
-            android:hint="@string/txt_nameuser_register"
-            android:background="@drawable/ic_input"
-            android:drawableStart="@drawable/ic_user"
-            android:drawablePadding="16dp"
-            android:padding="16dp"
-            android:fontFamily="@font/quicksand"
-            android:inputType="textEmailAddress"/>
-
-        <EditText
-            android:id="@+id/edtEmail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
             android:layout_marginTop="24dp"
+            android:layout_marginEnd="32dp"
+            android:fontFamily="@font/quicksand"
+            android:gravity="center_horizontal"
+            android:text="@string/txt_title_recovery"
+
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textDescrip"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="24dp"
+            android:fontFamily="@font/quicksand"
+            android:gravity="center_horizontal"
+            android:text="@string/txt_description_recovery"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/edtEmailRecovery"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="24dp"
             android:layout_marginRight="24dp"
-            android:ems="10"
-            android:hint="@string/txt_email_register"
             android:background="@drawable/ic_input"
             android:drawableStart="@drawable/ic_email"
             android:drawablePadding="16dp"
-            android:padding="16dp"
-            android:fontFamily="@font/quicksand"
-            android:inputType="textEmailAddress"/>
-
-        <EditText
-            android:id="@+id/edtPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:layout_marginLeft="24dp"
-            android:layout_marginRight="24dp"
             android:ems="10"
-            android:hint="@string/txt_password_register"
-            android:background="@drawable/ic_input"
-            android:drawableStart="@drawable/ic_lock"
-            android:drawablePadding="16dp"
-            android:padding="16dp"
             android:fontFamily="@font/quicksand"
-            android:inputType="text|textPassword"/>
-
-        <EditText
-            android:id="@+id/edtConfirmPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:layout_marginLeft="24dp"
-            android:layout_marginRight="24dp"
-            android:ems="10"
-            android:hint="@string/txt_confirm_password"
-            android:background="@drawable/ic_input"
-            android:drawableStart="@drawable/ic_lock"
-            android:drawablePadding="16dp"
-            android:padding="16dp"
-            android:fontFamily="@font/quicksand"
-            android:inputType="text|textPassword"/>
-
+            android:hint="@string/txt_user_login"
+            android:inputType="textEmailAddress"
+            android:padding="16dp" />
 
         <Button
-            android:id="@+id/btnRegistrar"
+            android:id="@+id/btnSendEmail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:layout_marginBottom="28dp"
             android:background="@drawable/btn_primary"
-            android:text="@string/txt_sign_up"
-            android:textColor="@color/white"
             android:fontFamily="@font/quicksand"
+            android:text="@string/txt_sendemail_recovery"
+            android:textColor="@color/white"
             android:textStyle="bold"
-            app:backgroundTint="@null"/>
+            app:backgroundTint="@null" />
 
 
     </LinearLayout>
@@ -147,15 +124,7 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0"
-            android:fontFamily="@font/quicksand"
-            android:text="@string/txt_isRegistered"/>
-
-        <TextView
-            android:id="@+id/txtLogin"
+            android:id="@+id/txtBack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
@@ -164,7 +133,7 @@
             android:textStyle="bold"
             android:textColor="@color/color_primary"
             android:fontFamily="@font/quicksand"
-            android:text="@string/txt_isRegistered_login"/>
+            android:text="@string/txt_back"/>
 
 
     </LinearLayout>

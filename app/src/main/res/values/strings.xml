@@ -55,4 +55,9 @@
     <string name="txt_Location">Ubicacion</string>
     <string name="txt_map">Mapa</string>
 
+    <string name="txt_title_recovery">Recuperar cuenta</string>
+    <string name="txt_description_recovery">Te ayudaremos a restablecer tu contraseña. Primero ingresa tu correo electrónico.</string>
+    <string name="txt_sendemail_recovery">Enviar</string>
+    <string name="txt_back">Regresar</string>
+
 </resources>
