@@ -29,19 +29,15 @@ class LoginActivity : AppCompatActivity() {
             val mEmail = b.edtEmail.text.toString()
             val mPassword = b.edtPassword.text.toString()
 
-            val user = User(mEmail, mPassword)
-
             when {
-
                 mEmail.isEmpty() || mPassword.isEmpty() -> {
-
                     Toast.makeText(
-                        baseContext, "Correo contraseña incorrectos",
+                        baseContext, "Correo o contraseña incorrectos",
                         Toast.LENGTH_SHORT
                     ).show()
                 }
                 else -> {
-                    SignIn(user)
+                    signIn(mEmail, mPassword)
 
                 }
             }
@@ -63,27 +59,27 @@ class LoginActivity : AppCompatActivity() {
 
     public override fun onStart() {
         super.onStart()
-        // Check if user is signed in (non-null) and update UI accordingly.
+
         val currentUser = auth.currentUser
         if(currentUser != null){
             reload();
         }
     }
 
-    private fun SignIn(user: User) {
 
-        auth.signInWithEmailAndPassword(user.email, user.password)
+
+    private fun signIn(email: String, password: String) {
+
+        auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    // Sign in success, update UI with the signed-in user's information
                     Log.d("TAG", "signInWithEmail:success")
                     reload()
 
                 } else {
-                    // If sign in fails, display a message to the user.
                     Log.w("TAG", "signInWithEmail:failure", task.exception)
                     Toast.makeText(
-                        baseContext, "Authentication failed.",
+                        baseContext, "El usuario no existe",
                         Toast.LENGTH_SHORT
                     ).show()
 

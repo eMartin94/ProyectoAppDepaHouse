@@ -15,8 +15,8 @@ import java.util.regex.Pattern
 
 class CreateAccountActivity : AppCompatActivity() {
 
-    private lateinit var auth: FirebaseAuth
 //    private lateinit var db: FirebaseFirestore
+    private lateinit var auth: FirebaseAuth
     private lateinit var b: ActivityCreateAccountBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,7 +36,7 @@ class CreateAccountActivity : AppCompatActivity() {
             val passwordRegex = Pattern.compile(
                 "^" +
                         "(?=.*[-@#$%^&+=])" +   // Al menos 1 caracter especial
-                        ".{6,}" +               // Al menos 4 caracteres
+                        ".{6,}" +               // Al menos 6 caracteres
                         "$"
             )
 
