@@ -59,6 +59,7 @@ class CreateAccountActivity : AppCompatActivity() {
             } else {
 
                 createAccount(user)
+                clearFields()
             }
 
 
@@ -66,9 +67,28 @@ class CreateAccountActivity : AppCompatActivity() {
 
         b.txtLogin.setOnClickListener {
 
+
+            finish()
             val i = Intent(this, LoginActivity::class.java)
             startActivity(i)
         }
+    }
+
+    public override fun onStart() {
+        super.onStart()
+
+        val currentUser = auth.currentUser
+        if(currentUser != null){
+            reload();
+        }
+    }
+
+    private fun clearFields() {
+
+        b.edtUsername.setText("")
+        b.edtEmail.setText("")
+        b.edtPassword.setText("")
+        b.edtConfirmPassword.setText("")
     }
 
 
@@ -92,9 +112,15 @@ class CreateAccountActivity : AppCompatActivity() {
                             Toast.makeText(this, "Error al crear usuario", Toast.LENGTH_LONG).show()
                         }
                 } else {
-                    Toast.makeText(this, "Ha ocurrido un erro", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this, "El correo electrónico ya se encuentra registrado", Toast.LENGTH_LONG).show()
                 }
             }
+    }
+
+    private fun reload() {
+
+        val i = Intent(this, LoginActivity::class.java)
+        startActivity(i)
     }
 
 }

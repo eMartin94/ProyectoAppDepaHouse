@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
     private fun signOut() {
 
         auth.signOut()
-
+        finish()
         val i = Intent(this, LoginActivity::class.java)
         startActivity(i)
     }
