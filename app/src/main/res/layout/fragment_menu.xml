@@ -13,8 +13,8 @@
         android:layout_gravity="bottom"
         android:gravity="center"
         android:background="@drawable/ic_launcher_menu"
-        android:paddingTop="15dp"
-        android:paddingBottom="10dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
         android:orientation="horizontal">
 
 
@@ -25,8 +25,8 @@
 
             <ImageView
                 android:id="@+id/btnHome"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginBottom="5dp"
                 app:srcCompat="@drawable/ic_home" />
@@ -39,6 +39,7 @@
                 android:textStyle="bold"
                 android:textColor="@color/white"
                 android:layout_gravity="center_horizontal"
+                android:textSize="12dp"
                 android:text="Inicio" />
         </LinearLayout>
 
@@ -49,8 +50,8 @@
 
             <ImageView
                 android:id="@+id/btnFav"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginBottom="5dp"
                 app:srcCompat="@drawable/ic_fav" />
@@ -63,6 +64,7 @@
                 android:textStyle="bold"
                 android:textColor="@color/white"
                 android:layout_gravity="center_horizontal"
+                android:textSize="12dp"
                 android:text="Favoritos" />
         </LinearLayout>
 
@@ -73,8 +75,8 @@
 
             <ImageView
                 android:id="@+id/btnComents"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginBottom="5dp"
                 app:srcCompat="@drawable/ic_message" />
@@ -87,6 +89,7 @@
                 android:textStyle="bold"
                 android:textColor="@color/white"
                 android:layout_gravity="center_horizontal"
+                android:textSize="12dp"
                 android:text="Comentarios" />
         </LinearLayout>
 
@@ -97,8 +100,8 @@
 
             <ImageView
                 android:id="@+id/btnProfile"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginBottom="5dp"
                 app:srcCompat="@drawable/ic_profile" />
@@ -111,6 +114,7 @@
                 android:textStyle="bold"
                 android:textColor="@color/white"
                 android:layout_gravity="center_horizontal"
+                android:textSize="12dp"
                 android:text="Perfil" />
         </LinearLayout>
 

@@ -12,23 +12,23 @@
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:background="@drawable/ic_launcher_cates"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
+        android:padding="10dp"
         android:layout_marginLeft="24dp"
         android:layout_marginRight="24dp"
         android:orientation="horizontal">
 
         <LinearLayout
-            android:layout_width="120dp"
+            android:layout_width="110dp"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <ImageView
+            <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/cateHome"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginBottom="5dp"
+                app:shapeAppearanceOverlay="@style/cornerImgs"
                 app:srcCompat="@drawable/img_cate1" />
 
             <TextView
@@ -38,22 +38,24 @@
                 android:layout_gravity="center_horizontal"
                 android:fontFamily="@font/quicksand"
                 android:text="Casas"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
+                android:textSize="12dp"
                 android:textStyle="bold" />
 
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="120dp"
+            android:layout_width="110dp"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <ImageView
+            <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/cateTerre"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginBottom="5dp"
+                app:shapeAppearanceOverlay="@style/cornerImgs"
                 app:srcCompat="@drawable/img_cate2" />
 
             <TextView
@@ -63,22 +65,24 @@
                 android:layout_gravity="center_horizontal"
                 android:fontFamily="@font/quicksand"
                 android:text="Terrenos"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
+                android:textSize="12dp"
                 android:textStyle="bold" />
 
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="120dp"
+            android:layout_width="110dp"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <ImageView
+            <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/cateDepa"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginBottom="5dp"
+                app:shapeAppearanceOverlay="@style/cornerImgs"
                 app:srcCompat="@drawable/img_cate3" />
 
             <TextView
@@ -88,7 +92,8 @@
                 android:layout_gravity="center_horizontal"
                 android:fontFamily="@font/quicksand"
                 android:text="Departamentos"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
+                android:textSize="12dp"
                 android:textStyle="bold" />
         </LinearLayout>
     </LinearLayout>
