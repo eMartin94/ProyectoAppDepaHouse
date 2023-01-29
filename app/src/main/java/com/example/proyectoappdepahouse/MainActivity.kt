@@ -39,11 +39,12 @@ class MainActivity : AppCompatActivity() {
 
         auth = Firebase.auth
 
-        val opt = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestIdToken(getString(R.string.default_web_client_id))
-            .requestEmail()
-            .build()
-        clientGoogle = GoogleSignIn.getClient(this, opt)
+        clientGoogle = GoogleSignIn.getClient(this, GoogleSignInOptions.DEFAULT_SIGN_IN)
+        clientGoogle.signOut()
+            .addOnCompleteListener(this) {
+                // Actualice la interfaz de usuario aquí
+                reload()
+            }
 
         val authListener = FirebaseAuth.AuthStateListener { firebaseAuth ->
             val user = firebaseAuth.currentUser
