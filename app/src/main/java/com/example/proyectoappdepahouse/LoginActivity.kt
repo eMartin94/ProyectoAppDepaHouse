@@ -6,13 +6,13 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import com.example.proyectoappdepahouse.databinding.ActivityLoginBinding
-import com.example.proyectoappdepahouse.model.User
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -81,7 +81,7 @@ class LoginActivity : AppCompatActivity() {
 
         val currentUser = auth.currentUser
         if (currentUser != null) {
-            reload();
+            updateUI();
         }
     }
 
@@ -107,7 +107,7 @@ class LoginActivity : AppCompatActivity() {
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     // Inicio de sesión con éxito, actualizar UI con la información del usuario
-                    reload()
+                    updateUI()
                 } else {
                     // Si falla el inicio de sesión, mostrar un mensaje de error al usuario
                     Toast.makeText(
@@ -125,7 +125,7 @@ class LoginActivity : AppCompatActivity() {
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     Log.d("TAG", "signInWithEmail:success")
-                    reload()
+                    updateUI()
 
                 } else {
                     Log.w("TAG", "signInWithEmail:failure", task.exception)
@@ -138,10 +138,18 @@ class LoginActivity : AppCompatActivity() {
             }
     }
 
-    private fun reload() {
 
-        val i = Intent(this, MainActivity::class.java)
-        startActivity(i)
+    private fun updateUI() {
+
+        val user = auth.currentUser
+
+        if (user != null) {
+
+            val i = Intent(this, MainActivity::class.java)
+            i.putExtra("displayName", user.displayName)
+            startActivity(i)
+
+        }
     }
 
 

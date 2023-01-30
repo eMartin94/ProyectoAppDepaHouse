@@ -6,9 +6,12 @@
         android:angle="270"
         android:endColor="#66139DFF"/>
     <corners
-        android:topLeftRadius="270dp"
-        android:topRightRadius="270dp"
-        android:bottomLeftRadius="270dp"
-        android:bottomRightRadius="270dp"/>
+        android:topLeftRadius="50dp"
+        android:topRightRadius="50dp"
+        android:bottomLeftRadius="50dp"
+        android:bottomRightRadius="50dp"/>
+
+    <size android:width="50dp"
+        android:height="50dp"/>
 
 </shape>

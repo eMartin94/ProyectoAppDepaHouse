@@ -28,7 +28,7 @@
     <string name="txt_alert_successfulRecord">Registro Exitoso Aceptar</string>
 
     <!--    Pantalla principal-->
-    <string name="txt_welcome_user">Bienvenido Usuario</string>
+    <string name="txt_welcome_user">Bienvenido </string>
     <string name="txt_search_here">Buscar Aqui</string>
     <string name="txt_category_1">Categoria 1</string>
     <string name="txt_category_2">Categoria 2</string>
