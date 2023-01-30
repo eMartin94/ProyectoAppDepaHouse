@@ -20,8 +20,8 @@ import com.google.firebase.ktx.Firebase
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
-    private lateinit var b:ActivityLoginBinding
-    private lateinit var clientGoogle:GoogleSignInClient
+    private lateinit var b: ActivityLoginBinding
+    private lateinit var clientGoogle: GoogleSignInClient
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -80,7 +80,7 @@ class LoginActivity : AppCompatActivity() {
         super.onStart()
 
         val currentUser = auth.currentUser
-        if(currentUser != null){
+        if (currentUser != null) {
             reload();
         }
     }
@@ -101,6 +101,22 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
+    private fun firebaseAuthWithGoogle(acct: GoogleSignInAccount) {
+        val credential = GoogleAuthProvider.getCredential(acct.idToken, null)
+        FirebaseAuth.getInstance().signInWithCredential(credential)
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    // Inicio de sesión con éxito, actualizar UI con la información del usuario
+                    reload()
+                } else {
+                    // Si falla el inicio de sesión, mostrar un mensaje de error al usuario
+                    Toast.makeText(
+                        baseContext, "Error al Iniciar Sessión con Google",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            }
+    }
 
 
     private fun signIn(email: String, password: String) {
@@ -128,22 +144,6 @@ class LoginActivity : AppCompatActivity() {
         startActivity(i)
     }
 
-    private fun firebaseAuthWithGoogle(acct: GoogleSignInAccount) {
-        val credential = GoogleAuthProvider.getCredential(acct.idToken, null)
-        FirebaseAuth.getInstance().signInWithCredential(credential)
-            .addOnCompleteListener { task ->
-                if (task.isSuccessful) {
-                    // Inicio de sesión con éxito, actualizar UI con la información del usuario
-                    reload()
-                } else {
-                    // Si falla el inicio de sesión, mostrar un mensaje de error al usuario
-                    Toast.makeText(
-                        baseContext, "Error al Iniciar Sessión con Google",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
-            }
-    }
 
     companion object {
         private const val RC_SIGN_IN = 9001

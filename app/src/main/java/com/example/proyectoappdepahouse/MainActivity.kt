@@ -30,6 +30,8 @@ class MainActivity : AppCompatActivity() {
         b.btnSignout.setOnClickListener {
             signOut()
         }
+
+
     }
 
     private fun signOut() {
