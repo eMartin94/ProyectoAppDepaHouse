@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/teal_200"
+    android:padding="10dp"
     tools:context=".ProfileFragment">
 
     <!-- TODO: Update blank fragment layout -->
@@ -16,6 +16,9 @@
         android:layout_gravity="center"
         android:layout_marginBottom="16dp"
         android:text="Perfil"
+        android:textSize="24dp"
+        android:textStyle="bold"
+        android:fontFamily="@font/quicksand"
         android:textAlignment="center"
         app:layout_constraintBottom_toTopOf="@+id/txtEmail"
         app:layout_constraintEnd_toEndOf="parent"
@@ -27,10 +30,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="192dp"
         android:text="Correo"
         android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/layoutImgPerfil"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/txtUserName"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
@@ -49,15 +52,39 @@
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/imgPhoto"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="5dp"
-            app:shapeAppearanceOverlay="@style/cornerImgs"
+            android:padding="1dp"
+            app:shapeAppearanceOverlay="@style/cornerImgProfile"
+            app:strokeWidth="3dp"
+            app:strokeColor="@color/color_alternative"
             app:srcCompat="@drawable/ic_user" />
 
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/layout_signout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="vertical"
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/btnSignout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginRight="10dp"
+            app:srcCompat="@drawable/ic_logout" />
+
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

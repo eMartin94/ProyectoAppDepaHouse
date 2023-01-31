@@ -1,8 +1,13 @@
 package com.example.proyectoappdepahouse
 
+import android.animation.AnimatorSet
+import android.animation.ObjectAnimator
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.view.View
+import android.view.animation.AnimationUtils
 import androidx.fragment.app.Fragment
 import com.example.proyectoappdepahouse.databinding.ActivityMainBinding
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -10,13 +15,13 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
     private lateinit var b: ActivityMainBinding
-    private lateinit var clientGoogle: GoogleSignInClient
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,11 +31,23 @@ class MainActivity : AppCompatActivity() {
         replaceFragment(ListHomeFragment())
 
         auth = Firebase.auth
+        val currentUser = auth.currentUser
+        val uid = currentUser!!.uid
+        val db = FirebaseFirestore.getInstance()
         val displayName = intent.getStringExtra("displayName")
-        b.txtNameuser.text = displayName
 
-        b.btnSignout.setOnClickListener {
-            signOut()
+        db.collection("users").document(uid).get().addOnSuccessListener {
+
+            val nameUser = (it.get("nameUser") as String?)
+            var name = ""
+            name = if (displayName != null) {
+                displayName
+            } else if (nameUser != null) {
+                nameUser
+            } else {
+                currentUser.displayName ?: ""
+            }
+            b.txtNameuser.text = "Bienvenido(a) $name"
         }
 
 
@@ -38,31 +55,38 @@ class MainActivity : AppCompatActivity() {
 
             when (it.itemId) {
 
-                R.id.home_dest -> replaceFragment(ListHomeFragment())
-                R.id.fav_dest -> replaceFragment(FavFragment())
+                R.id.home_dest -> {
+                    onPause()
+                    replaceFragment(ListHomeFragment())
+                }
+
+                R.id.fav_dest -> {
+                    onPause()
+                    replaceFragment(FavFragment())
+
+                }
                 R.id.profile_dest -> {
+                    onPause()
                     val user = auth.currentUser
+                    val uid = currentUser!!.uid
+                    val db = FirebaseFirestore.getInstance()
                     if (user != null) {
                         val bundle = Bundle()
-                        bundle.putString("email", user.email ?: "")
-                        bundle.putString("username", user.displayName ?: "")
+                        bundle.putString("email", user.email)
+                        bundle.putString("name", user.displayName)
                         val profileImageUri = user.photoUrl
                         if (profileImageUri != null) {
                             bundle.putString("photoUrl", profileImageUri.toString())
-                        } else {
-                            bundle.putString("photoUrl", "")
                         }
-                        val fragment = ProfileFragment()
-                        fragment.arguments = bundle
-                        replaceFragment(fragment)
-                    } else {
-                        val email = auth.currentUser?.email
-                        val name = auth.currentUser?.displayName
-                        if (email != null) {
-                            val bundle = Bundle()
-                            bundle.putString("email", email)
-                            bundle.putString("username", name)
-                            bundle.putString("photoUrl", "")
+
+                        db.collection("users").document(uid).get().addOnSuccessListener {
+                                documentSnapshot ->
+                            if (documentSnapshot.exists()) {
+                                val username = documentSnapshot.getString("nameUser")
+                                val email = documentSnapshot.getString("email")
+                                bundle.putString("nameUser", username)
+                                bundle.putString("email", email)
+                            }
                             val fragment = ProfileFragment()
                             fragment.arguments = bundle
                             replaceFragment(fragment)
@@ -81,43 +105,6 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private fun signOut() {
-
-        auth.signOut()
-        finish()
-
-        auth = Firebase.auth
-
-        clientGoogle = GoogleSignIn.getClient(this, GoogleSignInOptions.DEFAULT_SIGN_IN)
-        clientGoogle.signOut()
-            .addOnCompleteListener(this) {
-                // Actualice la interfaz de usuario aquí
-                reload()
-            }
-
-        val authListener = FirebaseAuth.AuthStateListener { firebaseAuth ->
-            val user = firebaseAuth.currentUser
-            if (user != null) {
-                // Usuario conectado, actualizar interfaz de usuario
-                reload()
-            } else {
-                // Usuario desconectado, actualizar interfaz de usuario
-            }
-        }
-
-        auth.addAuthStateListener(authListener)
-        auth.removeAuthStateListener(authListener)
-
-
-
-    }
-
-    private fun reload() {
-
-        val i = Intent(this, LoginActivity::class.java)
-        startActivity(i)
-    }
-
     private fun replaceFragment(fragment: Fragment) {
 
         val fragmentManager = supportFragmentManager
@@ -126,24 +113,22 @@ class MainActivity : AppCompatActivity() {
         fragmentTransaction.commit()
     }
 
-//    private fun updateUI() {
-//
-//        val user = auth.currentUser
-//
-//        if (user != null) {
-//
-//            val bundle = Bundle()
-//            bundle.putString("email", user.email)
-//            bundle.putString("name", user.displayName)
-//            val profileImageUri = user.photoUrl
-//            if (profileImageUri != null) {
-//                bundle.putString("photoUrl", profileImageUri.toString())
-//            }
-//            val fragment = ProfileFragment()
-//            fragment.arguments = bundle
-//            supportFragmentManager.beginTransaction()
-//                .replace(R.id.fragment_Container, fragment)
-//                .commit()
-//        }
-//    }
+    override fun onPause() {
+        super.onPause()
+
+        val layWelcome = ObjectAnimator.ofFloat(b.welcome, "translationY", 0f, -b.fragmentContainer.height.toFloat())
+        val layFragmet = ObjectAnimator.ofFloat(b.fragmentContainer, "translationY", b.welcome.height.toFloat(), 0f)
+        if (b.welcome.visibility != View.GONE) {
+
+            val animation = AnimationUtils.loadAnimation(this, android.R.anim.fade_out)
+            b.welcome.startAnimation(animation)
+            b.welcome.visibility = View.GONE
+            val set = AnimatorSet()
+            set.playTogether(layWelcome, layFragmet)
+            set.duration = 600
+            set.start()
+
+        }
+    }
+
 }
