@@ -3,20 +3,27 @@ package com.example.proyectoappdepahouse
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
+
 import android.os.Bundle
-import android.os.Handler
+import android.util.Log
 import android.view.View
 import android.view.animation.AnimationUtils
+import android.widget.SearchView
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.proyectoappdepahouse.adapter.EstateAdapter
 import com.example.proyectoappdepahouse.databinding.ActivityMainBinding
-import com.google.android.gms.auth.api.signin.GoogleSignIn
-import com.google.android.gms.auth.api.signin.GoogleSignInClient
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.example.proyectoappdepahouse.model.Estate
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -103,6 +110,19 @@ class MainActivity : AppCompatActivity() {
 
         }
 
+        b.btnCrearEstate.setOnClickListener {
+            var i = Intent(this, CreateEstateActivity::class.java)
+            startActivity(i)
+        }
+
+        if (currentUser != null) {
+            val useremail = currentUser.email
+            if (useremail != "admin@gmail.com") {
+                b.btnCrearEstate.visibility = View.GONE
+            }
+        }
+
+
     }
 
     private fun replaceFragment(fragment: Fragment) {
@@ -130,5 +150,6 @@ class MainActivity : AppCompatActivity() {
 
         }
     }
+
 
 }

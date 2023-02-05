@@ -154,7 +154,6 @@
             android:fontFamily="@font/quicksand"
             android:text="@string/txt_noestasRegistrado_Registrate"/>
 
-
     </LinearLayout>
 
 

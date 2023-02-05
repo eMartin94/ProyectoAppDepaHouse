@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EstatesFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+<!--    <data>-->
+
+<!--        <variable-->
+<!--            name="Estate"-->
+<!--            type="com.example.proyectoappdepahouse.model.Estate" />-->
+<!--    </data>-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/nameEstateEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/name_estate_hint"
+            android:text="@={estate.nameEstate}" />
+
+        <EditText
+            android:id="@+id/priceEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/price_hint"
+            android:inputType="numberDecimal"
+            android:text="@={estate.price}" />
+
+        <EditText
+            android:id="@+id/disctricEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/disctric_hint"
+            android:text="@={estate.disctric}" />
+
+        <EditText
+            android:id="@+id/cityEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/city_hint"
+            android:text="@={estate.city}" />
+
+        <EditText
+            android:id="@+id/locationEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/location_hint"
+            android:text="@={estate.location}" />
+
+        <Button
+            android:id="@+id/selectImageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/select_image_button" />
+
+    </LinearLayout>
+
+</FrameLayout>

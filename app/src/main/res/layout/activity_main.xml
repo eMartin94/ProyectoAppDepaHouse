@@ -10,9 +10,9 @@
         android:id="@+id/welcome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:orientation="horizontal"
         android:padding="10dp"
-        android:gravity="center"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
@@ -24,7 +24,26 @@
             android:gravity="center"
             android:text="" />
 
+
+
     </LinearLayout>
+
+    <Button
+        android:id="@+id/btnCrearEstate"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_weight="1"
+        android:text="Crear Inmueble"
+        android:textSize="12dp"
+        app:backgroundTint="@null"
+        android:background="@drawable/btn_primary"
+        app:layout_constraintBottom_toBottomOf="@+id/fragment_Container"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.8"
+        app:layout_constraintVertical_bias="0.06"
+        app:layout_constraintTop_toTopOf="@+id/welcome" />
+
 
     <FrameLayout
         android:id="@+id/fragment_Container"
@@ -32,8 +51,10 @@
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/contBtnMenu"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/welcome" />
+        app:layout_constraintTop_toBottomOf="@+id/welcome"
+        app:layout_constraintVertical_bias="0.0" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/contBtnMenu"
