@@ -37,6 +37,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(b.root)
         replaceFragment(ListHomeFragment())
 
+        hideKeyboard()
+
         auth = Firebase.auth
         val currentUser = auth.currentUser
         val uid = currentUser!!.uid
@@ -151,5 +153,8 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    fun hideKeyboard() {
+        hideSoftKeyboard(this, findViewById(android.R.id.content))
+    }
 
 }

@@ -10,8 +10,13 @@ import com.bumptech.glide.Glide
 import com.example.proyectoappdepahouse.R
 import com.example.proyectoappdepahouse.model.Estate
 
-class EstateAdapter(private val estates: List<Estate>) :
+class EstateAdapter(private var estates: List<Estate>) :
     RecyclerView.Adapter<EstateAdapter.EstateViewHolder>() {
+
+    fun updateList(newList: List<Estate>) {
+        estates = newList
+        notifyDataSetChanged()
+    }
 
     class EstateViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 

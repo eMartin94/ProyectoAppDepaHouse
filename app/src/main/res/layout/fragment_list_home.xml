@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
+    android:id="@+id/contFragList"
     tools:context=".ListHomeFragment">
 
 
@@ -25,11 +26,11 @@
                 android:orientation="horizontal">
 
                 <EditText
-                    android:id="@+id/edtEmail"
-                    android:layout_width="265dp"
+                    android:id="@+id/edtBuscar"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="24dp"
-                    android:layout_marginRight="5dp"
+                    android:layout_marginRight="24dp"
                     android:background="@drawable/ic_input"
                     android:drawableStart="@drawable/ic_search"
                     android:drawablePadding="10dp"
@@ -39,17 +40,17 @@
                     android:inputType="textEmailAddress"
                     android:padding="10dp"
                     android:textSize="12dp" />
-                <Button
-                    android:id="@+id/btnBuscar"
-                    android:layout_width="90dp"
-                    android:layout_height="40dp"
-                    android:background="@drawable/btn_primary"
-                    android:text="Buscar"
-                    android:textColor="@color/white"
-                    android:textStyle="bold"
-                    android:textSize="12dp"
-                    android:fontFamily="@font/quicksand"
-                    app:backgroundTint="@null"/>
+<!--                <Button-->
+<!--                    android:id="@+id/btnBuscar"-->
+<!--                    android:layout_width="90dp"-->
+<!--                    android:layout_height="40dp"-->
+<!--                    android:background="@drawable/btn_primary"-->
+<!--                    android:text="Buscar"-->
+<!--                    android:textColor="@color/white"-->
+<!--                    android:textStyle="bold"-->
+<!--                    android:textSize="12dp"-->
+<!--                    android:fontFamily="@font/quicksand"-->
+<!--                    app:backgroundTint="@null"/>-->
 
             </LinearLayout>
 
@@ -88,7 +89,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
                             android:fontFamily="@font/quicksand"
-                            android:text="Casas"
+                            android:text="Casa"
                             android:textColor="@color/black"
                             android:textSize="12dp"
                             android:textStyle="bold" />
@@ -115,7 +116,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
                             android:fontFamily="@font/quicksand"
-                            android:text="Terrenos"
+                            android:text="Terreno"
                             android:textColor="@color/black"
                             android:textSize="12dp"
                             android:textStyle="bold" />
@@ -142,7 +143,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
                             android:fontFamily="@font/quicksand"
-                            android:text="Departamentos"
+                            android:text="Departamento"
                             android:textColor="@color/black"
                             android:textSize="12dp"
                             android:textStyle="bold" />
@@ -185,8 +186,7 @@
                         <androidx.recyclerview.widget.RecyclerView
                             android:id="@+id/listEstates"
                             android:layout_width="match_parent"
-                            android:layout_height="743dp"
-                            android:background="@color/teal_200" />
+                            android:layout_height="743dp"/>
 
                     </LinearLayout>
 

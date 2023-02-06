@@ -1,11 +1,16 @@
 package com.example.proyectoappdepahouse
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.proyectoappdepahouse.adapter.EstateAdapter
 import com.example.proyectoappdepahouse.databinding.FragmentListHomeBinding
@@ -26,9 +31,9 @@ class ListHomeFragment : Fragment() {
     private lateinit var adapter: EstateAdapter
 
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
 
 
     }
@@ -41,6 +46,69 @@ class ListHomeFragment : Fragment() {
         b = FragmentListHomeBinding.inflate(inflater, container, false)
         val view = b.root
 
+//        b.btnBuscar.setOnClickListener {
+//            val searchTerm = b.edtBuscar.text.toString().trim()
+//            if (searchTerm.isNotEmpty()) {
+//                search(searchTerm)
+//            } else {
+//                getAll()
+//            }
+//        }
+        b.cateHome.setOnClickListener {
+
+            val bundle = Bundle()
+            bundle.putString("text", b.txtCateHome.text.toString())
+            val fragment = CategorieFragment()
+            fragment.arguments = bundle
+            val transaction = parentFragmentManager.beginTransaction()
+            transaction.replace(R.id.fragment_Container, fragment)
+            transaction.addToBackStack(null)
+            transaction.commit()
+
+        }
+        b.cateDepa.setOnClickListener {
+
+            val bundle = Bundle()
+            bundle.putString("text", b.txtCateDepa.text.toString())
+            val fragment = CategorieFragment()
+            fragment.arguments = bundle
+            val transaction = parentFragmentManager.beginTransaction()
+            transaction.replace(R.id.fragment_Container, fragment)
+            transaction.addToBackStack(null)
+            transaction.commit()
+
+        }
+        b.cateTerre.setOnClickListener {
+
+            val bundle = Bundle()
+            bundle.putString("text", b.txtCateTerre.text.toString())
+            val fragment = CategorieFragment()
+            fragment.arguments = bundle
+            val transaction = parentFragmentManager.beginTransaction()
+            transaction.replace(R.id.fragment_Container, fragment)
+            transaction.addToBackStack(null)
+            transaction.commit()
+
+        }
+        b.edtBuscar.addTextChangedListener(object : TextWatcher {
+
+            override fun afterTextChanged(s: Editable?) {
+                val searchTerm = s.toString().trim()
+                if (searchTerm.isNotEmpty()) {
+                    search(searchTerm)
+                } else {
+                    // Mostrar todos los registros si el término de búsqueda está vacío
+                    adapter.updateList(lstEstate)
+                }
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+
+        })
+
+
+        hideKeyboard()
         getAll()
 
         return view
@@ -57,12 +125,13 @@ class ListHomeFragment : Fragment() {
                     item.idestate = doc.id
                     item.name = doc["name"].toString()
                     item.district = doc["district"].toString()
+                    item.city = doc["city"].toString()
+                    item.location = doc["location"].toString()
                     item.price = (doc["price"] as? Double) ?: 0.0
                     item.photo = doc["photo"].toString()
 
                     b.listEstates.adapter = adapter
                     b.listEstates.layoutManager = LinearLayoutManager(requireContext())
-
                     lstEstate.add(item)
                 }
             }
@@ -89,5 +158,26 @@ class ListHomeFragment : Fragment() {
 //            }
     }
 
+
+    fun search(searchTerm: String) {
+        val filteredList = mutableListOf<Estate>()
+
+        for (estate in lstEstate) {
+            if (estate.name?.contains(searchTerm, true) == true ||
+                estate.city?.contains(searchTerm, true) == true ||
+                estate.district?.contains(searchTerm, true) == true ||
+                estate.location?.contains(searchTerm, true) == true ||
+                estate.type?.contains(searchTerm, true) == true) {
+                filteredList.add(estate)
+            }
+        }
+        // Actualizar el RecyclerView con la lista filtrada
+        adapter.updateList(filteredList)
+    }
+
+
+    private fun hideKeyboard() {
+        hideSoftKeyboard(requireContext(), b.root)
+    }
 
 }
