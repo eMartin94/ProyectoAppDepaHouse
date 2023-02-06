@@ -58,7 +58,8 @@ class CreateEstateActivity : AppCompatActivity() {
             "location" to location,
             "type" to type,
             "price" to price.toDouble(),
-            "photo" to "https://images.pexels.com/photos/5088877/pexels-photo-5088877.jpeg"
+            "photo" to "https://images.pexels.com/photos/5088877/pexels-photo-5088877.jpeg",
+            "isLiked" to false
         )
 
 

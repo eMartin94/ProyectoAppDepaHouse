@@ -10,4 +10,5 @@ data class Estate(
     var type: String? = null,
     var price: Double? = null,
     var photo: String? = null,
+    var isLiked: Boolean = false
 )

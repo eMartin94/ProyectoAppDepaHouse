@@ -1,7 +1,5 @@
 package com.example.proyectoappdepahouse
 
-import android.app.Activity
-import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -10,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
+import android.widget.Button
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.proyectoappdepahouse.adapter.EstateAdapter
@@ -26,10 +25,9 @@ import com.google.firebase.ktx.Firebase
 class ListHomeFragment : Fragment() {
 
     val db = FirebaseFirestore.getInstance()
-    private lateinit var b:FragmentListHomeBinding
+    private lateinit var b: FragmentListHomeBinding
     private lateinit var lstEstate: ArrayList<Estate>
     private lateinit var adapter: EstateAdapter
-
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -107,55 +105,47 @@ class ListHomeFragment : Fragment() {
 
         })
 
-
         hideKeyboard()
         getAll()
 
         return view
     }
 
+
     private fun getAll() {
         lstEstate = ArrayList()
         adapter = EstateAdapter(lstEstate)
-        db.collection("estate")
-            .get()
-            .addOnSuccessListener { documents ->
-                for (doc in documents) {
-                    val item = doc.toObject(Estate::class.java)
-                    item.idestate = doc.id
-                    item.name = doc["name"].toString()
-                    item.district = doc["district"].toString()
-                    item.city = doc["city"].toString()
-                    item.location = doc["location"].toString()
-                    item.price = (doc["price"] as? Double) ?: 0.0
-                    item.photo = doc["photo"].toString()
+        val currentUser = FirebaseAuth.getInstance().currentUser
+        if (currentUser != null) {
+            val uid = currentUser.uid
+            db.collection("estate")
+                .get()
+                .addOnSuccessListener { documents ->
+                    for (doc in documents) {
+                        val item = doc.toObject(Estate::class.java)
+                        item.idestate = doc.id
+                        item.name = doc["name"].toString()
+                        item.district = doc["district"].toString()
+                        item.city = doc["city"].toString()
+                        item.location = doc["location"].toString()
+                        item.price = (doc["price"] as? Double) ?: 0.0
+                        item.photo = doc["photo"].toString()
 
-                    b.listEstates.adapter = adapter
-                    b.listEstates.layoutManager = LinearLayoutManager(requireContext())
-                    lstEstate.add(item)
+                        db.collection("users").document(uid)
+                            .collection("favorites")
+                            .document(item.idestate!!)
+                            .get()
+                            .addOnSuccessListener { favoriteDoc ->
+                                item.isLiked = favoriteDoc.exists()
+                                b.listEstates.adapter = adapter
+                                b.listEstates.layoutManager = LinearLayoutManager(requireContext())
+                                lstEstate.add(item)
+                                adapter.updateList(lstEstate)
+
+                            }
+                    }
                 }
-            }
-
-//          Forma 2
-    //    storageReference = FirebaseStorage.getInstance().reference
-//        val db = FirebaseFirestore.getInstance()
-//        db.collection("estate")
-//            .orderBy("name")
-//            .get()
-//            .addOnCompleteListener { task ->
-//                if (task.isSuccessful) {
-//                    val lst = ArrayList<Estate>()
-//                    for (doc in task.result!!) {
-//                        val estate = doc.toObject(Estate::class.java)
-//                        lst.add(estate)
-//                    }
-//                    lstEstate.clear()
-//                    lstEstate.addAll(lst)
-//                    adapter.notifyDataSetChanged()
-//                } else {
-//                    Toast.makeText(this@MainActivity, "Ocurrió un error", Toast.LENGTH_SHORT).show()
-//                }
-//            }
+        }
     }
 
 
@@ -167,7 +157,8 @@ class ListHomeFragment : Fragment() {
                 estate.city?.contains(searchTerm, true) == true ||
                 estate.district?.contains(searchTerm, true) == true ||
                 estate.location?.contains(searchTerm, true) == true ||
-                estate.type?.contains(searchTerm, true) == true) {
+                estate.type?.contains(searchTerm, true) == true
+            ) {
                 filteredList.add(estate)
             }
         }
@@ -179,5 +170,6 @@ class ListHomeFragment : Fragment() {
     private fun hideKeyboard() {
         hideSoftKeyboard(requireContext(), b.root)
     }
+
 
 }
