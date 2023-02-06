@@ -1,17 +1,23 @@
 package com.example.proyectoappdepahouse.adapter
 
+import android.content.Context
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.proyectoappdepahouse.EstateDetailsFragment
 import com.example.proyectoappdepahouse.R
 import com.example.proyectoappdepahouse.model.Estate
 
 class CategorieEstAdapter(private var cates: List<Estate>) :
     RecyclerView.Adapter<CategorieEstAdapter.ViewHolder>() {
+
+    private lateinit var mContext: Context
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
@@ -25,7 +31,8 @@ class CategorieEstAdapter(private var cates: List<Estate>) :
 
         val itemView =
             LayoutInflater.from(parent.context).inflate(R.layout.list_categories, parent, false)
-        return CategorieEstAdapter.ViewHolder(itemView)
+        mContext = parent.context
+        return ViewHolder(itemView)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -38,6 +45,19 @@ class CategorieEstAdapter(private var cates: List<Estate>) :
             Glide.with(holder.itemView.context)
                 .load(estate.photo)
                 .into(holder.photo)
+        }
+
+        holder.itemView.setOnClickListener {
+            val bundle = Bundle()
+            bundle.putSerializable("estate", estate)
+            val estateDetailsFragment = EstateDetailsFragment()
+            estateDetailsFragment.arguments = bundle
+
+            val fragmentManager = (mContext as AppCompatActivity).supportFragmentManager
+            val fragmentTransaction = fragmentManager.beginTransaction()
+            fragmentTransaction.replace(R.id.fragment_Container, estateDetailsFragment)
+            fragmentTransaction.addToBackStack(null)
+            fragmentTransaction.commit()
         }
     }
 

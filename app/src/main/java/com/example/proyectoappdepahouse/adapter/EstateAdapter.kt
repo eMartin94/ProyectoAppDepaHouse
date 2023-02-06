@@ -1,13 +1,17 @@
 package com.example.proyectoappdepahouse.adapter
 
+import android.content.Context
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.proyectoappdepahouse.EstateDetailsFragment
 import com.example.proyectoappdepahouse.R
 import com.example.proyectoappdepahouse.model.Estate
 import com.google.firebase.auth.FirebaseAuth
@@ -18,6 +22,7 @@ class EstateAdapter(private var estates: List<Estate>) :
 
     private lateinit var db: FirebaseFirestore
     private lateinit var userId: String
+    private lateinit var mContext: Context
 
     fun updateList(newList: List<Estate>) {
         estates = newList
@@ -36,6 +41,7 @@ class EstateAdapter(private var estates: List<Estate>) :
         val price: TextView = itemView.findViewById(R.id.txtPrice)
         val photo: ImageView = itemView.findViewById(R.id.imgEstate)
         val btnLiked: ImageView = itemView.findViewById(R.id.btnLiked)
+
     }
 
 
@@ -45,6 +51,7 @@ class EstateAdapter(private var estates: List<Estate>) :
             LayoutInflater.from(parent.context).inflate(R.layout.list_estate, parent, false)
         db = FirebaseFirestore.getInstance()
         userId = FirebaseAuth.getInstance().currentUser!!.uid
+        mContext = parent.context
         return EstateViewHolder(itemView)
     }
 
@@ -61,12 +68,26 @@ class EstateAdapter(private var estates: List<Estate>) :
                 .into(holder.photo)
         }
 
+
         val item = estates[position]
 
         if (item.isLiked) {
             holder.btnLiked.setImageResource(R.drawable.ic_is_liked)
         } else {
             holder.btnLiked.setImageResource(R.drawable.ic_no_liked)
+        }
+
+        holder.itemView.setOnClickListener {
+            val bundle = Bundle()
+            bundle.putSerializable("estate", estate)
+            val estateDetailsFragment = EstateDetailsFragment()
+            estateDetailsFragment.arguments = bundle
+
+            val fragmentManager = (mContext as AppCompatActivity).supportFragmentManager
+            val fragmentTransaction = fragmentManager.beginTransaction()
+            fragmentTransaction.replace(R.id.fragment_Container, estateDetailsFragment)
+            fragmentTransaction.addToBackStack(null)
+            fragmentTransaction.commit()
         }
 
         holder.btnLiked.setOnClickListener {
@@ -121,4 +142,6 @@ class EstateAdapter(private var estates: List<Estate>) :
 //        }
 
 
+
 }
+

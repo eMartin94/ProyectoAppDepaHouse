@@ -19,10 +19,11 @@
         android:layout_height="250dp">
 
         <ImageView
+            android:id="@+id/imgDetailsPhoto"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="center"
-            android:src="@drawable/img_cate1"/>
+            android:src="@drawable/img_cate1" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"

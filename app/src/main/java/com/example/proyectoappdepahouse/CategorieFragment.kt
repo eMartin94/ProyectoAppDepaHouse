@@ -68,6 +68,8 @@ class CategorieFragment : Fragment() {
                     }
                 }
             }
+
+
     }
 
 

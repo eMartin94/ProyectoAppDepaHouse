@@ -5,9 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.bumptech.glide.Glide
 import com.example.proyectoappdepahouse.adapter.EstateAdapter
 import com.example.proyectoappdepahouse.databinding.FragmentEstateDetailsBinding
-import com.example.proyectoappdepahouse.databinding.FragmentFavBinding
 import com.example.proyectoappdepahouse.model.Estate
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -30,6 +30,17 @@ class EstateDetailsFragment : Fragment() {
         // Inflate the layout for this fragment
         b = FragmentEstateDetailsBinding.inflate(inflater, container, false)
         val view = b.root
+
+        val estate = arguments?.getSerializable("estate") as Estate
+
+        b.txtDetailsDescription.text = estate.name
+        b.txtDetailsLocation.text = estate.district + ", " + estate.city
+        b.txtDetailsPrice.text = "s/ ${String.format("%.2f", estate.price ?: 0.0)}"
+        if (estate.photo != null) {
+            Glide.with(this)
+                .load(estate.photo)
+                .into(b.imgDetailsPhoto)
+        }
 
         return view
     }

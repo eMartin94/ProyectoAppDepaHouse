@@ -11,4 +11,5 @@ data class Estate(
     var price: Double? = null,
     var photo: String? = null,
     var isLiked: Boolean = false
-)
+) : java.io.Serializable
+
