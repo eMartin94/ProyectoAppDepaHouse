@@ -14,6 +14,16 @@ data class Estate(
     var type: String? = null,
     var price: Double? = null,
     var photo: String? = null,
+
+    var dimension: String? = null,
+    var floor: String? = null,
+    var room: String? = null,
+    var badroom: String? = null,
+    var livingroom: String? = null,
+    var kitchen: String? = null,
+    var pool: String? = null,
+
     var isLiked: Boolean = false
+
 ) : java.io.Serializable
 

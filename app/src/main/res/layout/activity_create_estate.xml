@@ -27,104 +27,116 @@
                 android:layout_width="match_parent"
                 android:layout_height="10dp" />
 
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Nombre"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
             <EditText
                 android:id="@+id/edtNameEstate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
+                android:hint="Descripción"
                 android:inputType="textPersonName" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Cuidad"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/edtCity"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Distrito"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/edtDistrict"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Latitud"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/edtLat"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Longitud"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/edtLng"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Tipo"
-                android:textSize="16sp"
-                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/edtType"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
+                android:hint="Tipo"
                 android:inputType="textPersonName" />
 
-
-            <TextView
+            <EditText
+                android:id="@+id/edtCity"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Precio"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                android:ems="10"
+                android:hint="Ciudad"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/edtDistrict"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Distrito"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/edtRoom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Habitaciones"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/edtFloor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Pisos"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/edtLivingroom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Sala"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/edtBadroom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Baño"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/edtDimension"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Dimensión"
+                android:inputType="number" />
+
+            <EditText
+                android:id="@+id/edtKitcen"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Cocina"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/edtPool"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Piscina"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/edtLat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Latitud"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/edtLng"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Longitud"
+                android:inputType="textPersonName" />
 
             <EditText
                 android:id="@+id/edtPrice"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
+                android:hint="Precio"
                 android:inputType="numberDecimal" />
 
             <Space

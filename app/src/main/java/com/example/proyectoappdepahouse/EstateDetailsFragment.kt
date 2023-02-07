@@ -45,6 +45,13 @@ class EstateDetailsFragment : Fragment(), OnMapReadyCallback {
         b.txtDetailsDescription.text = estate.name
         b.txtDetailsLocation.text = estate.district + ", " + estate.city
         b.txtDetailsPrice.text = "s/ ${String.format("%.2f", estate.price ?: 0.0)}"
+        b.txtDetailsDimension.text = estate.dimension.toString() + "m²"
+        b.txtDetailsFloor.text = estate.floor
+        b.txtDetailsRooms.text = estate.room
+        b.txtDetailsBadrooms.text = estate.badroom
+        b.txtDetailsLivingrooms.text = estate.livingroom
+        b.txtDetailsKitchen.text = estate.kitchen
+        b.txtDetailsPool.text = estate.pool
 //        b.txtDetailsLatlng.text = "${estate.location?.get("latitude")}, ${estate.location?.get("longitude")}"
         if (estate.photo != null) {
             Glide.with(this)

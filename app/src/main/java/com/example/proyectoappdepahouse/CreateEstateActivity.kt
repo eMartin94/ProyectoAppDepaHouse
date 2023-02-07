@@ -47,6 +47,14 @@ class CreateEstateActivity : AppCompatActivity() {
         val type = b.edtType.text.toString().trim()
         val price = b.edtPrice.text.toString()
 
+        val dimension = b.edtDimension.text.toString().trim()
+        val floor = b.edtFloor.text.toString().trim()
+        val room = b.edtRoom.text.toString().trim()
+        val badroom = b.edtBadroom.text.toString().trim()
+        val kitchen = b.edtKitcen.text.toString().trim()
+        val livingroom = b.edtLivingroom.text.toString().trim()
+        val pool = b.edtPool.text.toString().trim()
+
         val db = FirebaseFirestore.getInstance()
         storage = FirebaseFirestore.getInstance()
 
@@ -59,6 +67,13 @@ class CreateEstateActivity : AppCompatActivity() {
             "location" to hashMapOf("latitude" to latitude.toDouble(), "longitude" to longitude.toDouble()),
             "type" to type,
             "price" to price.toDouble(),
+            "dimension" to dimension,
+            "floor" to floor,
+            "room" to room,
+            "badroom" to badroom,
+            "kitchen" to kitchen,
+            "livingroom" to livingroom,
+            "pool" to pool,
             "photo" to "https://images.pexels.com/photos/5088877/pexels-photo-5088877.jpeg",
             "isLiked" to false
         )
