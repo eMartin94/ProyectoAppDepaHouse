@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.proyectoappdepahouse.adapter.CategorieEstAdapter
 import com.example.proyectoappdepahouse.databinding.FragmentCategorieBinding
 import com.example.proyectoappdepahouse.model.Estate
+import com.google.android.gms.maps.model.LatLng
 import com.google.firebase.firestore.FirebaseFirestore
 
 class CategorieFragment : Fragment() {
@@ -58,9 +59,11 @@ class CategorieFragment : Fragment() {
                         item.name = doc["name"].toString()
                         item.district = doc["district"].toString()
                         item.city = doc["city"].toString()
-                        item.location = doc["location"].toString()
+//                        item.location = doc["location"].toString()
                         item.price = (doc["price"] as? Double) ?: 0.0
                         item.photo = doc["photo"].toString()
+
+                        item.location = doc["location"] as Map<String, Double>
 
                         b.listCategories.adapter = adapter
                         b.listCategories.layoutManager = LinearLayoutManager(requireContext())

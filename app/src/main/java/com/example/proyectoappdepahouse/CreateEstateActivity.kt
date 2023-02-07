@@ -42,7 +42,8 @@ class CreateEstateActivity : AppCompatActivity() {
         val nameState = b.edtNameEstate.text.toString().trim()
         val city = b.edtCity.text.toString().trim()
         val district = b.edtDistrict.text.toString().trim()
-        val location = b.edtLocation.text.toString().trim()
+        val latitude = b.edtLat.text.toString().trim()
+        val longitude = b.edtLng.text.toString().trim()
         val type = b.edtType.text.toString().trim()
         val price = b.edtPrice.text.toString()
 
@@ -55,7 +56,7 @@ class CreateEstateActivity : AppCompatActivity() {
             "name" to nameState,
             "city" to city,
             "district" to district,
-            "location" to location,
+            "location" to hashMapOf("latitude" to latitude.toDouble(), "longitude" to longitude.toDouble()),
             "type" to type,
             "price" to price.toDouble(),
             "photo" to "https://images.pexels.com/photos/5088877/pexels-photo-5088877.jpeg",
@@ -71,40 +72,6 @@ class CreateEstateActivity : AppCompatActivity() {
                 "Se ha creado correctamente",
                 Toast.LENGTH_SHORT
             ).show()
-
-//        val estateMap: MutableMap<String, Any> = HashMap()
-//        estateMap["name"] = nameState
-//        estateMap["city"] = city
-//        estateMap["district"] = district
-//        estateMap["location"] = location
-//        estateMap["type"] = type
-//        estateMap["price"] = price
-//        estateMap["photo"] = "https://images.pexels.com/photos/5088877/pexels-photo-5088877.jpeg"
-
-//            .addOnSuccessListener {
-//                db.collection("estate")
-//                    .addSnapshotListener { querySnapshot, e ->
-//                        if (e != null) {
-//                            Toast.makeText(
-//                                this@CreateEstateActivity,
-//                                "Ocurrió un error",
-//                                Toast.LENGTH_SHORT
-//                            ).show()
-//                        }
-//                        lstEstate.clear()
-//                        for (doc in querySnapshot!!) {
-//                            val alumno = doc.toObject(Estate::class.java)
-//                            lstEstate.add(alumno)
-//                        }
-//                        Toast.makeText(
-//                            this@CreateEstateActivity,
-//                            "Se ha creado correctamente",
-//                            Toast.LENGTH_SHORT
-//                        ).show()
-//                        adapter.notifyDataSetChanged()
-//                    }
-//            }
-
 
     }
 

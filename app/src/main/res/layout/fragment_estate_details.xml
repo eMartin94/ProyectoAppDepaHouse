@@ -5,18 +5,24 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:padding="10dp"
+    android:padding="15dp"
     tools:context=".EstateDetailsFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:fontFamily="@font/quicksand"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:layout_marginBottom="10dp"
         android:text="Detalle" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="250dp">
+        android:layout_height="220dp"
+        android:layout_marginBottom="5dp">
 
         <ImageView
             android:id="@+id/imgDetailsPhoto"
@@ -33,25 +39,30 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginBottom="5dp">
 
             <TextView
                 android:id="@+id/txtDetailsDescription"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/quicksand"
+                android:textStyle="bold"
                 android:text="Nombre de inmueble"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="end"
-                android:text="precio"/>
+                android:fontFamily="@font/quicksand"
+                android:text="Precio"/>
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="7dp"
             android:orientation="horizontal">
 
             <LinearLayout
@@ -70,6 +81,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
+                    android:fontFamily="@font/quicksand"
                     android:text="Ubicación"/>
             </LinearLayout>
 
@@ -79,12 +91,201 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="end"
+                android:fontFamily="@font/quicksand"
+                android:textStyle="bold"
                 android:layout_gravity="center_vertical"
                 android:text="precio"/>
 
         </LinearLayout>
 
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Especificaciones"
+            android:textAlignment="center"
+            android:fontFamily="@font/quicksand"
+            android:textStyle="bold"
+            android:layout_marginBottom="7dp"
+            android:textSize="18dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/quicksand"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:text="Dimensión"/>
+            <TextView
+                android:id="@+id/txtDetailsMetro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/quicksand"
+                android:textAlignment="center"
+                android:text="1000 m²"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/quicksand"
+                    android:textStyle="bold"
+                    android:textAlignment="center"
+                    android:text="Habitaciones"/>
+                <TextView
+                    android:id="@+id/txtDetailsRooms"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/quicksand"
+                    android:textAlignment="center"
+                    android:text="04"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/quicksand"
+                    android:textAlignment="center"
+                    android:textStyle="bold"
+                    android:text="Baño(s)"/>
+                <TextView
+                    android:id="@+id/txtDetailsBadrooms"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/quicksand"
+                    android:textAlignment="center"
+                    android:text="04"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="15dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/quicksand"
+                    android:textAlignment="center"
+                    android:textStyle="bold"
+                    android:text="Sala(s)"/>
+                <TextView
+                    android:id="@+id/txtDetailsLivingrooms"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/quicksand"
+                    android:textAlignment="center"
+                    android:text="04"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="15dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/quicksand"
+                    android:textStyle="bold"
+                    android:textAlignment="center"
+                    android:text="Cocina(s)"/>
+                <TextView
+                    android:id="@+id/txtDetailsKitchen"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/quicksand"
+                    android:textAlignment="center"
+                    android:text="04"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/quicksand"
+                    android:textStyle="bold"
+                    android:textAlignment="center"
+                    android:text="Piscina"/>
+                <TextView
+                    android:id="@+id/txtDetailsPool"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/quicksand"
+                    android:textAlignment="center"
+                    android:text="No"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+<!--    <TextView-->
+<!--        android:id="@+id/txtDetailsLatlng"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:gravity="end"-->
+<!--        android:fontFamily="@font/quicksand"-->
+<!--        android:layout_gravity="center_vertical"-->
+<!--        android:text="LatLong"/>-->
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:map="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.gms.maps.MapView
+            android:id="@+id/map_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            map:cameraZoom="12"
+            map:mapType="normal"/>
+
+    </RelativeLayout>
 
 
 </LinearLayout>

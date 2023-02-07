@@ -17,6 +17,7 @@ import com.example.proyectoappdepahouse.model.Estate
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.android.gms.maps.model.LatLng
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -127,9 +128,11 @@ class ListHomeFragment : Fragment() {
                         item.name = doc["name"].toString()
                         item.district = doc["district"].toString()
                         item.city = doc["city"].toString()
-                        item.location = doc["location"].toString()
+//                        item.location = doc["location"].toString()
                         item.price = (doc["price"] as? Double) ?: 0.0
                         item.photo = doc["photo"].toString()
+
+                        item.location = doc["location"] as Map<String, Double>
 
                         db.collection("users").document(uid)
                             .collection("favorites")
@@ -156,7 +159,8 @@ class ListHomeFragment : Fragment() {
             if (estate.name?.contains(searchTerm, true) == true ||
                 estate.city?.contains(searchTerm, true) == true ||
                 estate.district?.contains(searchTerm, true) == true ||
-                estate.location?.contains(searchTerm, true) == true ||
+//                estate.location?.contains(searchTerm, true) == true ||
+//                estate.location?.latitude == searchTermLatitude && estate.location?.longitude == searchTermLongitude ||
                 estate.type?.contains(searchTerm, true) == true
             ) {
                 filteredList.add(estate)
