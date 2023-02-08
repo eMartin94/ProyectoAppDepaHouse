@@ -23,7 +23,9 @@ data class Estate(
     var kitchen: String? = null,
     var pool: String? = null,
 
-    var isLiked: Boolean = false
+    var isLiked: Boolean = false,
+
+    var infoSend: Boolean = false
 
 ) : java.io.Serializable
 

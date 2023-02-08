@@ -1,5 +1,6 @@
 package com.example.proyectoappdepahouse
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -59,6 +60,18 @@ class EstateDetailsFragment : Fragment(), OnMapReadyCallback {
                 .into(b.imgDetailsPhoto)
         }
 
+        b.btnInfo.setOnClickListener {
+            val bundle = Bundle()
+            bundle.putSerializable("estate", estate)
+            val fragment = InfoFragment()
+            fragment.arguments = bundle
+            val transaction = parentFragmentManager.beginTransaction()
+            transaction.replace(R.id.fragment_Container, fragment)
+            transaction.addToBackStack(null)
+            transaction.commit()
+
+        }
+
         mMapView = b.mapView
         mMapView.onCreate(savedInstanceState)
         mMapView.getMapAsync(this)
@@ -102,5 +115,6 @@ class EstateDetailsFragment : Fragment(), OnMapReadyCallback {
         super.onLowMemory()
         mMapView.onLowMemory()
     }
+
 
 }

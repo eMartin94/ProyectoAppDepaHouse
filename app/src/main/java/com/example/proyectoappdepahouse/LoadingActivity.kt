@@ -15,6 +15,6 @@ class LoadingActivity : AppCompatActivity() {
 
             val i = Intent(this, LoginActivity::class.java)
             startActivity(i)
-        }, 3000)
+        }, 2500)
     }
 }

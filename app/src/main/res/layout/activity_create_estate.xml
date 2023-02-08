@@ -17,151 +17,172 @@
         app:layout_constraintTop_toTopOf="parent">
 
 
-        <LinearLayout
-            android:id="@+id/layoutCreate"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="match_parent">
 
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="10dp" />
-
-            <EditText
-                android:id="@+id/edtNameEstate"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Descripción"
-                android:inputType="textPersonName" />
+                android:orientation="vertical" >
 
-            <EditText
-                android:id="@+id/edtType"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Tipo"
-                android:inputType="textPersonName" />
+                <LinearLayout
+                    android:id="@+id/layoutCreate"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
 
-            <EditText
-                android:id="@+id/edtCity"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Ciudad"
-                android:inputType="textPersonName" />
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="10dp" />
 
-            <EditText
-                android:id="@+id/edtDistrict"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Distrito"
-                android:inputType="textPersonName" />
+                    <EditText
+                        android:id="@+id/edtNameEstate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:hint="Descripción"
+                        android:inputType="textPersonName" />
 
-            <EditText
-                android:id="@+id/edtRoom"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Habitaciones"
-                android:inputType="textPersonName" />
+                    <EditText
+                        android:id="@+id/edtType"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:hint="Tipo"
+                        android:inputType="textPersonName" />
 
-            <EditText
-                android:id="@+id/edtFloor"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Pisos"
-                android:inputType="textPersonName" />
+                    <EditText
+                        android:id="@+id/edtCity"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:hint="Ciudad"
+                        android:inputType="textPersonName" />
 
-            <EditText
-                android:id="@+id/edtLivingroom"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Sala"
-                android:inputType="textPersonName" />
+                    <EditText
+                        android:id="@+id/edtDistrict"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:hint="Distrito"
+                        android:inputType="textPersonName" />
 
-            <EditText
-                android:id="@+id/edtBadroom"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Baño"
-                android:inputType="textPersonName" />
+                    <EditText
+                        android:id="@+id/edtRoom"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:hint="Habitaciones"
+                        android:inputType="textPersonName" />
 
-            <EditText
-                android:id="@+id/edtDimension"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Dimensión"
-                android:inputType="number" />
+                    <EditText
+                        android:id="@+id/edtFloor"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:hint="Pisos"
+                        android:inputType="textPersonName" />
 
-            <EditText
-                android:id="@+id/edtKitcen"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Cocina"
-                android:inputType="textPersonName" />
+                    <EditText
+                        android:id="@+id/edtLivingroom"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:hint="Sala"
+                        android:inputType="textPersonName" />
 
-            <EditText
-                android:id="@+id/edtPool"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Piscina"
-                android:inputType="textPersonName" />
+                    <EditText
+                        android:id="@+id/edtBadroom"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:hint="Baño"
+                        android:inputType="textPersonName" />
 
-            <EditText
-                android:id="@+id/edtLat"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Latitud"
-                android:inputType="textPersonName" />
+                    <EditText
+                        android:id="@+id/edtDimension"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:hint="Dimensión"
+                        android:inputType="number" />
 
-            <EditText
-                android:id="@+id/edtLng"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Longitud"
-                android:inputType="textPersonName" />
+                    <EditText
+                        android:id="@+id/edtKitcen"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:hint="Cocina"
+                        android:inputType="textPersonName" />
 
-            <EditText
-                android:id="@+id/edtPrice"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Precio"
-                android:inputType="numberDecimal" />
+                    <EditText
+                        android:id="@+id/edtPool"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:hint="Piscina"
+                        android:inputType="textPersonName" />
 
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="15dp" />
+                    <EditText
+                        android:id="@+id/edtLat"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:hint="Latitud"
+                        android:inputType="textPersonName" />
 
-            <Button
-                android:id="@+id/btn_add"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="add" />
+                    <EditText
+                        android:id="@+id/edtLng"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:hint="Longitud"
+                        android:inputType="textPersonName" />
 
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="15dp" />
+                    <EditText
+                        android:id="@+id/edtPrice"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:hint="Precio"
+                        android:inputType="numberDecimal" />
 
-            <TextView
-                android:id="@+id/txtBackMain"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAlignment="center"
-                android:text="Salir" />
+<!--                    <Button-->
+<!--                        android:id="@+id/btnOpenGallery"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="Seleccionar Imagen" />-->
+
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="15dp" />
+
+                    <Button
+                        android:id="@+id/btn_add"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="add" />
+
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="15dp" />
+
+                    <TextView
+                        android:id="@+id/txtBackMain"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:text="Salir" />
 
 
-        </LinearLayout>
+                </LinearLayout>
+
+
+            </LinearLayout>
+        </ScrollView>
+
+
     </LinearLayout>
 
 

@@ -24,7 +24,6 @@ import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 
-
 class MainActivity : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
@@ -72,6 +71,11 @@ class MainActivity : AppCompatActivity() {
                 R.id.fav_dest -> {
                     onPause()
                     replaceFragment(FavFragment())
+
+                }
+                R.id.info_dest -> {
+                    onPause()
+                    replaceFragment(InfoListFragment())
 
                 }
                 R.id.profile_dest -> {
@@ -153,8 +157,16 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+
     fun hideKeyboard() {
         hideSoftKeyboard(this, findViewById(android.R.id.content))
     }
 
+    override fun onBackPressed() {
+        if (supportFragmentManager.backStackEntryCount > 0) {
+            supportFragmentManager.popBackStack()
+        } else {
+            super.onBackPressed()
+        }
+    }
 }

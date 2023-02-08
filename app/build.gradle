@@ -60,6 +60,8 @@ dependencies {
     implementation 'com.google.firebase:firebase-storage-ktx:20.1.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
 
+    implementation 'javax.mail:mail:1.4.7'
+
 
 //    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.5.1'
 //    implementation 'androidx.lifecycle:lifecycle-viewmodel:2.5.1'

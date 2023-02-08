@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="15dp"
+    tools:context=".EstateDetailsFragment">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/quicksand"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:textAlignment="center"
+        android:text="Solicitar Información"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:orientation="horizontal">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/imgInfoEstate"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center_horizontal"
+            app:shapeAppearanceOverlay="@style/cornerImgs"
+            android:layout_marginRight="10dp"
+            android:scaleType="centerCrop"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtInfoName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="7dp"
+                android:fontFamily="@font/quicksand"
+                android:textStyle="bold"
+
+                android:text="Nombre"/>
+
+            <TextView
+                android:id="@+id/txtInfoPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="7dp"
+                android:fontFamily="@font/quicksand"
+                android:textStyle="bold"
+                android:text="Precio"/>
+
+            <TextView
+                android:id="@+id/txtInfoUbi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="7dp"
+                android:fontFamily="@font/quicksand"
+                android:textStyle="italic"
+                android:text="Lugar"/>
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/quicksand"
+            android:layout_marginBottom="15dp"
+            android:textStyle="bold"
+            android:textSize="18dp"
+            android:text="Información Personal"/>
+
+        <EditText
+            android:id="@+id/edtInfoName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Nombres y Apellidos"
+            android:background="@drawable/ic_input"
+            android:layout_marginBottom="10dp"
+            android:padding="10dp"
+            android:textSize="14dp"
+            android:fontFamily="@font/quicksand"
+            android:inputType="textEmailAddress"/>
+
+        <EditText
+            android:id="@+id/edtInfoEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Correo de contacto"
+            android:background="@drawable/ic_input"
+            android:layout_marginBottom="10dp"
+            android:padding="10dp"
+            android:textSize="14dp"
+            android:fontFamily="@font/quicksand"
+            android:inputType="textEmailAddress"/>
+
+        <EditText
+            android:id="@+id/edtInfoPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Número de Contacto"
+            android:background="@drawable/ic_input"
+            android:layout_marginBottom="10dp"
+            android:padding="10dp"
+            android:textSize="14dp"
+            android:fontFamily="@font/quicksand"
+            android:inputType="textPersonName"/>
+
+
+        <Button
+            android:id="@+id/btnInfoSend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/btn_primary"
+            android:text="Enviar"
+            android:layout_gravity="end"
+            android:textColor="@color/white"
+            android:fontFamily="@font/quicksand"
+            android:textStyle="bold"
+            app:backgroundTint="@null"/>
+
+    </LinearLayout>
+
+<!--    <androidx.recyclerview.widget.RecyclerView-->
+<!--        android:id="@+id/listInfo"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="701dp" />-->
+
+</LinearLayout>

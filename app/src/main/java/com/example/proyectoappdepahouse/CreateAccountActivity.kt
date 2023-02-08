@@ -43,7 +43,7 @@ class CreateAccountActivity : AppCompatActivity() {
             val user = User(mNameUser, mEmail, mPassword)
 
             if (mNameUser.isEmpty() || mNameUser.length < 5) {
-                Toast.makeText(baseContext, "Ingrese un usuario váilido válido",
+                Toast.makeText(baseContext, "Ingrese un usuario válido",
                     Toast.LENGTH_SHORT).show()
 
             } else if (mEmail.isEmpty() || !Patterns.EMAIL_ADDRESS.matcher(mEmail).matches()) {
