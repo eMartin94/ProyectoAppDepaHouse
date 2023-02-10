@@ -34,118 +34,213 @@
 
                     <Space
                         android:layout_width="match_parent"
-                        android:layout_height="10dp" />
+                        android:layout_height="5dp" />
 
                     <EditText
                         android:id="@+id/edtNameEstate"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:padding="8dp"
                         android:ems="10"
-                        android:hint="Descripción"
+                        android:hint="@string/hint_description"
+                        android:background="@drawable/ic_input"
                         android:inputType="textPersonName" />
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="3dp" />
 
                     <EditText
                         android:id="@+id/edtType"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:padding="8dp"
                         android:ems="10"
-                        android:hint="Tipo"
+                        android:hint="@string/hint_type"
+                        android:background="@drawable/ic_input"
                         android:inputType="textPersonName" />
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="3dp" />
 
                     <EditText
                         android:id="@+id/edtCity"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:padding="8dp"
                         android:ems="10"
-                        android:hint="Ciudad"
+                        android:hint="@string/hint_city"
+                        android:background="@drawable/ic_input"
                         android:inputType="textPersonName" />
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="3dp" />
 
                     <EditText
                         android:id="@+id/edtDistrict"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:padding="8dp"
                         android:ems="10"
-                        android:hint="Distrito"
+                        android:hint="@string/hint_district"
+                        android:background="@drawable/ic_input"
                         android:inputType="textPersonName" />
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="3dp" />
 
                     <EditText
                         android:id="@+id/edtRoom"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:padding="8dp"
                         android:ems="10"
-                        android:hint="Habitaciones"
+                        android:hint="@string/hint_bedrooms"
+                        android:background="@drawable/ic_input"
                         android:inputType="textPersonName" />
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="3dp" />
 
                     <EditText
                         android:id="@+id/edtFloor"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:padding="8dp"
                         android:ems="10"
-                        android:hint="Pisos"
+                        android:hint="@string/hint_floors"
+                        android:background="@drawable/ic_input"
                         android:inputType="textPersonName" />
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="3dp" />
 
                     <EditText
                         android:id="@+id/edtLivingroom"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:padding="8dp"
                         android:ems="10"
-                        android:hint="Sala"
+                        android:hint="@string/hint_hall"
+                        android:background="@drawable/ic_input"
                         android:inputType="textPersonName" />
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="3dp" />
 
                     <EditText
                         android:id="@+id/edtBadroom"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:padding="8dp"
                         android:ems="10"
-                        android:hint="Baño"
+                        android:hint="@string/hint_bathroom"
+                        android:background="@drawable/ic_input"
                         android:inputType="textPersonName" />
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="3dp" />
 
                     <EditText
                         android:id="@+id/edtDimension"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:padding="8dp"
                         android:ems="10"
-                        android:hint="Dimensión"
+                        android:hint="@string/hint_dimension"
+                        android:background="@drawable/ic_input"
                         android:inputType="number" />
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="3dp" />
 
                     <EditText
                         android:id="@+id/edtKitcen"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:padding="8dp"
                         android:ems="10"
-                        android:hint="Cocina"
+                        android:hint="@string/hint_kitchen"
+                        android:background="@drawable/ic_input"
                         android:inputType="textPersonName" />
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="3dp" />
 
                     <EditText
                         android:id="@+id/edtPool"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:padding="8dp"
                         android:ems="10"
-                        android:hint="Piscina"
+                        android:hint="@string/hint_pool"
+                        android:background="@drawable/ic_input"
                         android:inputType="textPersonName" />
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="3dp" />
 
                     <EditText
                         android:id="@+id/edtLat"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/ic_input"
                         android:ems="10"
-                        android:hint="Latitud"
-                        android:inputType="textPersonName" />
+                        android:hint="@string/hint_latitude"
+                        android:inputType="textPersonName"
+                        android:padding="8dp" />
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="3dp" />
 
                     <EditText
                         android:id="@+id/edtLng"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:padding="8dp"
                         android:ems="10"
-                        android:hint="Longitud"
+                        android:hint="@string/hint_length"
+                        android:background="@drawable/ic_input"
                         android:inputType="textPersonName" />
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="3dp" />
 
                     <EditText
                         android:id="@+id/edtPrice"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:padding="8dp"
                         android:ems="10"
-                        android:hint="Precio"
+                        android:hint="@string/hint_price"
+                        android:background="@drawable/ic_input"
                         android:inputType="numberDecimal" />
 
 <!--                    <Button-->
@@ -156,23 +251,30 @@
 
                     <Space
                         android:layout_width="match_parent"
-                        android:layout_height="15dp" />
+                        android:layout_height="8dp" />
 
                     <Button
                         android:id="@+id/btn_add"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="add" />
+                        android:background="@drawable/btn_primary"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        app:backgroundTint="@null"
+                        android:text="@string/txt_add" />
 
                     <Space
                         android:layout_width="match_parent"
-                        android:layout_height="15dp" />
+                        android:layout_height="8dp" />
 
                     <TextView
                         android:id="@+id/txtBackMain"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textAlignment="center"
+                        android:background="@drawable/btn_secondary"
+                        android:textColor="@color/color_primary"
+                        android:textStyle="bold"
                         android:text="Salir" />
 
 
