@@ -243,11 +243,11 @@
                         android:background="@drawable/ic_input"
                         android:inputType="numberDecimal" />
 
-<!--                    <Button-->
-<!--                        android:id="@+id/btnOpenGallery"-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:text="Seleccionar Imagen" />-->
+                    <Button
+                        android:id="@+id/btnOpenGallery"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Seleccionar Imagen" />
 
                     <Space
                         android:layout_width="match_parent"

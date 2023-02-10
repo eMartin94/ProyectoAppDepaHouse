@@ -36,11 +36,21 @@
     </LinearLayout>
 
 
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/listCategories"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="701dp" />
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/listCategories"
+                android:layout_width="match_parent"
+                android:layout_height="701dp" />
+        </LinearLayout>
+    </ScrollView>
 
 
 </LinearLayout>
