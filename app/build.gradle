@@ -8,14 +8,14 @@ plugins {
 //def localProperties = new Properties()
 //localProperties.load(new FileInputStream(rootProject.file("local.properties")))
 
-def secretsPropertiesFile = new File(rootProject.projectDir, "secrets.properties")
-if (secretsPropertiesFile.exists()) {
-    Properties secretsProperties = new Properties()
-    secretsProperties.load(new FileInputStream(secretsPropertiesFile))
-    secretsProperties.each { key, value ->
-        project.ext[key] = value
-    }
-}
+//def secretsPropertiesFile = new File(rootProject.projectDir, "secrets.properties")
+//if (secretsPropertiesFile.exists()) {
+//    Properties secretsProperties = new Properties()
+//    secretsProperties.load(new FileInputStream(secretsPropertiesFile))
+//    secretsProperties.each { key, value ->
+//        project.ext[key] = value
+//    }
+//}
 
 android {
     namespace 'com.example.proyectoappdepahouse'
