@@ -50,7 +50,7 @@ class ProfileFragment : Fragment() {
                 .into(b.imgPhoto)
         }
         b.btnSignout.setOnClickListener {
-            Toast.makeText(requireContext(), "Cerrar Sesión", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), "Has cerrado sesión", Toast.LENGTH_SHORT).show()
             signOut()
         }
 

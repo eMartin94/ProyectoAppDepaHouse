@@ -47,28 +47,28 @@
                     android:id="@+id/txtInfoReUbi"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="20dp"
+                    android:layout_marginRight="5dp"
                     android:layout_marginBottom="7dp"
                     android:fontFamily="@font/quicksand"
-                    android:text="Lugar"
+                    android:text="Lugarsdsad, sdasdas"
                     android:textStyle="italic" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="20dp"
+                    android:layout_marginRight="5dp"
                     android:layout_marginBottom="7dp"
                     android:fontFamily="@font/quicksand"
                     android:text="|" />
 
                 <TextView
                     android:id="@+id/txtInfoRePrice"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="20dp"
+                    android:layout_marginRight="7dp"
                     android:layout_marginBottom="7dp"
                     android:fontFamily="@font/quicksand"
-                    android:text="Precio"
+                    android:text="s/ 1232343.00"
                     android:textStyle="bold" />
                 <!--                <TextView-->
                 <!--                    android:layout_width="wrap_content"-->

@@ -5,6 +5,18 @@ plugins {
     id 'kotlin-kapt'
 }
 
+//def localProperties = new Properties()
+//localProperties.load(new FileInputStream(rootProject.file("local.properties")))
+
+def secretsPropertiesFile = new File(rootProject.projectDir, "secrets.properties")
+if (secretsPropertiesFile.exists()) {
+    Properties secretsProperties = new Properties()
+    secretsProperties.load(new FileInputStream(secretsPropertiesFile))
+    secretsProperties.each { key, value ->
+        project.ext[key] = value
+    }
+}
+
 android {
     namespace 'com.example.proyectoappdepahouse'
     compileSdk 32
@@ -20,6 +32,11 @@ android {
     }
 
     buildTypes {
+//        debug {
+//
+////            buildConfigField("String", "API_KEY", "\"" + localProperties['MAPS_API_KEY'] + "\"")
+//            resValue("string", "google_maps_key", localProperties['MAPS_API_KEY'])
+//        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
@@ -37,6 +54,8 @@ android {
         viewBinding true
         dataBinding true
     }
+
+
 }
 
 dependencies {
