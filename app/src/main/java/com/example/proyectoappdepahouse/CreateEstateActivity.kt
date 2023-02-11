@@ -46,6 +46,24 @@ class CreateEstateActivity : AppCompatActivity() {
         }
 
         b.btnAdd.setOnClickListener {
+            //referencciar los cma
+            val nameState = b.edtNameEstate.text.toString().trim()
+            val city = b.edtCity.text.toString().trim()
+            val district = b.edtDistrict.text.toString().trim()
+            val latitude = b.edtLat.text.toString().trim()
+            val longitude = b.edtLng.text.toString().trim()
+            val type = b.edtType.text.toString().trim()
+            val price = b.edtPrice.text.toString()
+
+            val dimension = b.edtDimension.text.toString().trim()
+            val floor = b.edtFloor.text.toString().trim()
+            val room = b.edtRoom.text.toString().trim()
+            val badroom = b.edtBadroom.text.toString().trim()
+            val kitchen = b.edtKitcen.text.toString().trim()
+            val livingroom = b.edtLivingroom.text.toString().trim()
+            val pool = b.edtPool.text.toString().trim()
+
+
             if (photoUri != null) {
                 val fileReference = storageReference.child(System.currentTimeMillis().toString())
 
@@ -63,7 +81,22 @@ class CreateEstateActivity : AppCompatActivity() {
                         ).show()
                     }
             } else {
-                postEstate()
+                if (nameState.isEmpty() || city.isEmpty() || district.isEmpty() || latitude.isEmpty() ||
+                    longitude.isEmpty() || type.isEmpty() || room.isEmpty() || dimension.isEmpty() ||
+                    floor.isEmpty() || badroom.isEmpty() || kitchen.isEmpty() || livingroom.isEmpty() ||
+                    pool.isEmpty() || price.isEmpty()
+                ) {
+                    Toast.makeText(
+                        this@CreateEstateActivity,
+                        "todos los campos son obligatorios",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                } else {
+                    postEstate()
+
+                }
+
+
             }
         }
 
@@ -153,6 +186,7 @@ class CreateEstateActivity : AppCompatActivity() {
         db.collection("estate")
             .add(estateMap)
             .addOnSuccessListener {
+                clearFields()
                 Toast.makeText(
                     this@CreateEstateActivity,
                     "Inmueble creado exitosamente",
@@ -166,6 +200,26 @@ class CreateEstateActivity : AppCompatActivity() {
                     Toast.LENGTH_SHORT
                 ).show()
             }
+
+
+    }
+
+
+    private fun clearFields() {
+        b.edtNameEstate.setText("")
+        b.edtBadroom.setText("")
+        b.edtCity.setText("")
+        b.edtLat.setText("")
+        b.edtLng.setText("")
+        b.edtDimension.setText("")
+        b.edtDistrict.setText("")
+        b.edtFloor.setText("")
+        b.edtKitcen.setText("")
+        b.edtLivingroom.setText("")
+        b.edtPool.setText("")
+        b.edtPrice.setText("")
+        b.edtRoom.setText("")
+        b.edtType.setText("")
 
 
     }
