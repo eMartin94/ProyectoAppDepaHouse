@@ -5,13 +5,12 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:paddingTop="15dp"
-    android:paddingLeft="24dp"
-    android:paddingRight="24dp"
     tools:context=".CategorieFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingStart="10dp"
         android:orientation="horizontal">
 
         <TextView
