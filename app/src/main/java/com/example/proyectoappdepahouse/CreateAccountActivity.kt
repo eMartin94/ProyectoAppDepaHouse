@@ -60,6 +60,7 @@ class CreateAccountActivity : AppCompatActivity() {
 
                 createAccount(user)
                 clearFields()
+                reload()
             }
 
 
@@ -67,21 +68,20 @@ class CreateAccountActivity : AppCompatActivity() {
 
         b.txtLogin.setOnClickListener {
 
-
             finish()
             val i = Intent(this, LoginActivity::class.java)
             startActivity(i)
         }
     }
 
-    public override fun onStart() {
-        super.onStart()
-
-        val currentUser = auth.currentUser
-        if(currentUser != null){
-            reload();
-        }
-    }
+//    public override fun onStart() {
+//        super.onStart()
+//
+//        val currentUser = auth.currentUser
+//        if(currentUser != null){
+//            reload();
+//        }
+//    }
 
     private fun clearFields() {
 

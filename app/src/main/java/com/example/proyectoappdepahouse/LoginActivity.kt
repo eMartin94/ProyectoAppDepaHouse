@@ -81,7 +81,7 @@ class LoginActivity : AppCompatActivity() {
 
         val currentUser = auth.currentUser
         if (currentUser != null) {
-            updateUI();
+            updateUI()
         }
     }
 

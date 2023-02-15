@@ -72,17 +72,17 @@
             android:id="@+id/edtPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
             android:layout_marginLeft="24dp"
+            android:layout_marginTop="24dp"
             android:layout_marginRight="24dp"
-            android:ems="10"
-            android:hint="@string/txt_password_login"
             android:background="@drawable/ic_input"
             android:drawableStart="@drawable/ic_lock"
             android:drawablePadding="16dp"
-            android:padding="16dp"
+            android:ems="10"
             android:fontFamily="@font/quicksand"
-            android:inputType="text|textPassword"/>
+            android:hint="@string/txt_password_login"
+            android:inputType="text|textPassword"
+            android:padding="16dp" />
 
         <TextView
             android:id="@+id/txtRecoveryPass"

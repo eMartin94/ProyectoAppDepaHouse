@@ -84,6 +84,12 @@
     <string name="hint_latitude">Latitud</string>
     <string name="hint_length">Longitud</string>
     <string name="hint_price">Precio</string>
-    <string name="txt_add">Add</string>
+    <string name="txt_add">Guardar</string>
+
+    <string-array name="types">
+        <item>Casa</item>
+        <item>Departamento</item>
+        <item>Terreno</item>
+    </string-array>
 
 </resources>

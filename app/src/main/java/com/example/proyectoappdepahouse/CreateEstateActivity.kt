@@ -5,6 +5,9 @@ import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.widget.ArrayAdapter
+import android.widget.Spinner
 import android.widget.Toast
 import com.example.proyectoappdepahouse.adapter.EstateAdapter
 import com.example.proyectoappdepahouse.databinding.ActivityCreateEstateBinding
@@ -17,14 +20,17 @@ import java.util.UUID
 
 class CreateEstateActivity : AppCompatActivity() {
 
+//    private lateinit var auth: FirebaseAuth
+//    private var lstEstate = ArrayList<Estate>()
+//    private lateinit var adapter: EstateAdapter
+
     val db = FirebaseFirestore.getInstance()
-    private lateinit var auth: FirebaseAuth
     private lateinit var b: ActivityCreateEstateBinding
 
-    private var lstEstate = ArrayList<Estate>()
-    private lateinit var adapter: EstateAdapter
     private lateinit var storage: FirebaseFirestore
     private lateinit var storageReference: StorageReference
+
+    private lateinit var spinnerType: Spinner
 
     private var photoUri: Uri? = null
 
@@ -45,6 +51,14 @@ class CreateEstateActivity : AppCompatActivity() {
             finish()
         }
 
+        b.progressBar.visibility = View.INVISIBLE
+
+        spinnerType = b.spinnerType
+        val typesArray = resources.getStringArray(R.array.types)
+        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, typesArray)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spinnerType.adapter = adapter
+
         b.btnAdd.setOnClickListener {
             //referencciar los cma
             val nameState = b.edtNameEstate.text.toString().trim()
@@ -52,7 +66,8 @@ class CreateEstateActivity : AppCompatActivity() {
             val district = b.edtDistrict.text.toString().trim()
             val latitude = b.edtLat.text.toString().trim()
             val longitude = b.edtLng.text.toString().trim()
-            val type = b.edtType.text.toString().trim()
+//            val type = b.edtType.text.toString().trim()
+            val type = spinnerType.selectedItem.toString().trim()
             val price = b.edtPrice.text.toString()
 
             val dimension = b.edtDimension.text.toString().trim()
@@ -64,12 +79,14 @@ class CreateEstateActivity : AppCompatActivity() {
             val pool = b.edtPool.text.toString().trim()
 
 
+            b.progressBar.visibility = View.VISIBLE
             if (photoUri != null) {
                 val fileReference = storageReference.child(System.currentTimeMillis().toString())
 
                 fileReference.putFile(photoUri!!)
                     .addOnSuccessListener {
                         fileReference.downloadUrl.addOnSuccessListener { photoUrl ->
+                            b.progressBar.visibility = View.INVISIBLE
                             postEstate(photoUrl.toString())
                         }
                     }
@@ -121,6 +138,7 @@ class CreateEstateActivity : AppCompatActivity() {
 
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK && data != null && data.data != null) {
             photoUri = data.data!!
+
             Toast.makeText(
                 this@CreateEstateActivity,
                 "La imagen se ha cargado correctamente",
@@ -131,12 +149,16 @@ class CreateEstateActivity : AppCompatActivity() {
 
     private fun postEstate(photoUrl: String = "") {
 
+//        val types = resources.getStringArray(R.array.types)
+
         val nameState = b.edtNameEstate.text.toString().trim()
         val city = b.edtCity.text.toString().trim()
         val district = b.edtDistrict.text.toString().trim()
         val latitude = b.edtLat.text.toString().trim()
         val longitude = b.edtLng.text.toString().trim()
-        val type = b.edtType.text.toString().trim()
+//        val type = b.edtType.text.toString().trim()
+        val type = spinnerType.selectedItem.toString().trim()
+//        val type = types[b.spinnerType.selectedItemPosition]
         val price = b.edtPrice.text.toString()
 
         val dimension = b.edtDimension.text.toString().trim()
@@ -219,7 +241,8 @@ class CreateEstateActivity : AppCompatActivity() {
         b.edtPool.setText("")
         b.edtPrice.setText("")
         b.edtRoom.setText("")
-        b.edtType.setText("")
+//        b.edtType.setText("")
+//        b.spinnerType.
 
 
     }
