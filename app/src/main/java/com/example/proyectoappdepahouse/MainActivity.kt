@@ -5,6 +5,7 @@ import android.animation.ObjectAnimator
 import android.content.Intent
 
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import android.view.View
 import android.view.animation.AnimationUtils
@@ -23,6 +24,8 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
+import android.content.Context
+import androidx.core.content.edit
 
 class MainActivity : AppCompatActivity() {
 
@@ -53,9 +56,11 @@ class MainActivity : AppCompatActivity() {
             } else if (nameUser != null) {
                 nameUser
             } else {
+
                 currentUser.displayName ?: ""
             }
-            b.txtNameuser.text = "Bienvenido(a) $name"
+//            b.txtNameuser.text = "Bienvenido(a) $name"
+            Toast.makeText(this, "Bienvenido(a) $name", Toast.LENGTH_LONG).show()
         }
 
 
@@ -128,6 +133,9 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+//        if (prefs.getBoolean("welcome_shown", false)) {
+//            b.welcome.visibility = View.GONE
+//        }
 
     }
 
@@ -139,23 +147,27 @@ class MainActivity : AppCompatActivity() {
         fragmentTransaction.commit()
     }
 
-    override fun onPause() {
-        super.onPause()
-
-        val layWelcome = ObjectAnimator.ofFloat(b.welcome, "translationY", 0f, -b.fragmentContainer.height.toFloat())
-        val layFragmet = ObjectAnimator.ofFloat(b.fragmentContainer, "translationY", b.welcome.height.toFloat(), 0f)
-        if (b.welcome.visibility != View.GONE) {
-
-            val animation = AnimationUtils.loadAnimation(this, android.R.anim.fade_out)
-            b.welcome.startAnimation(animation)
-            b.welcome.visibility = View.GONE
-            val set = AnimatorSet()
-            set.playTogether(layWelcome, layFragmet)
-            set.duration = 600
-            set.start()
-
-        }
-    }
+//    override fun onPause() {
+//        super.onPause()
+//
+//        val layWelcome = ObjectAnimator.ofFloat(b.welcome, "translationY", 0f, -b.fragmentContainer.height.toFloat())
+//        val layFragmet = ObjectAnimator.ofFloat(b.fragmentContainer, "translationY", b.welcome.height.toFloat(), 0f)
+//        if (b.welcome.visibility != View.GONE) {
+//
+//            val animation = AnimationUtils.loadAnimation(this, android.R.anim.fade_out)
+//            b.welcome.startAnimation(animation)
+//            Handler().postDelayed({
+//                b.welcome.visibility = View.GONE
+//
+//                // Animar layWelcome y layFragment después de ocultar b.welcome
+//                val set = AnimatorSet()
+//                set.playTogether(layWelcome, layFragmet)
+//                set.duration = 600
+//                set.start()
+//            }, 2000)
+//
+//        }
+//    }
 
 
     fun hideKeyboard() {
@@ -169,4 +181,8 @@ class MainActivity : AppCompatActivity() {
             super.onBackPressed()
         }
     }
+
+//    private val prefs by lazy {
+//        getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+//    }
 }

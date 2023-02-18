@@ -13,16 +13,22 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.proyectoappdepahouse.EstateDetailsFragment
 import com.example.proyectoappdepahouse.R
+import com.example.proyectoappdepahouse.UpdateEstateFragment
 import com.example.proyectoappdepahouse.model.Estate
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.ktx.Firebase
 
-class EstateAdapter(private var estates: List<Estate>) :
+class EstateAdapter(var estates: List<Estate>) :
     RecyclerView.Adapter<EstateAdapter.EstateViewHolder>() {
 
+    private lateinit var auth: FirebaseAuth
     private lateinit var db: FirebaseFirestore
     private lateinit var userId: String
     private lateinit var mContext: Context
+
+    private var onEstateSelectedListener: OnEstateSelectedListener? = null
 
     fun updateList(newList: List<Estate>) {
         estates = newList
@@ -41,6 +47,9 @@ class EstateAdapter(private var estates: List<Estate>) :
         val price: TextView = itemView.findViewById(R.id.txtPrice)
         val photo: ImageView = itemView.findViewById(R.id.imgEstate)
         val btnLiked: ImageView = itemView.findViewById(R.id.btnLiked)
+        val btnEditEstate: ImageView = itemView.findViewById(R.id.btnEditEstate)
+
+
 
     }
 
@@ -57,6 +66,8 @@ class EstateAdapter(private var estates: List<Estate>) :
 
     override fun onBindViewHolder(holder: EstateViewHolder, position: Int) {
 
+        auth = Firebase.auth
+        val currentUser = auth.currentUser
 
         val estate = estates[position]
         holder.description.text = estate.name.toString().capitalize()
@@ -129,6 +140,32 @@ class EstateAdapter(private var estates: List<Estate>) :
 
         }
 
+//        holder.btnEditEstate.setOnClickListener {
+//            val intent = Intent(mContext, EditEstateActivity::class.java)
+//            intent.putExtra("estate_id", estates[position].idestate) // pass estate ID to EditEstateActivity
+//            mContext.startActivity(intent)
+//        }
+
+        if (currentUser != null) {
+            val useremail = currentUser.email
+            if (useremail != "admin@gmail.com") {
+                holder.btnEditEstate.visibility = View.GONE
+            }
+        }
+
+        holder.btnEditEstate.setOnClickListener {
+            val updateEstateFragment = UpdateEstateFragment()
+            val args = Bundle()
+            args.putString("estate_id", estates[position].idestate)
+            updateEstateFragment.arguments = args
+
+            val transaction = (mContext as AppCompatActivity).supportFragmentManager.beginTransaction()
+            transaction.replace(R.id.fragment_Container, updateEstateFragment)
+            transaction.addToBackStack(null)
+            transaction.commit()
+        }
+
+
 
     }
 
@@ -142,6 +179,21 @@ class EstateAdapter(private var estates: List<Estate>) :
 //        }
 
 
+    fun setOnEstateSelectedListener(listener: OnEstateSelectedListener) {
+        onEstateSelectedListener = listener
+    }
+
+
+    interface OnEstateSelectedListener {
+        fun onEstateSelected(estateId: String)
+    }
+
+    fun updateItemAtPosition(position: Int, newEstate: Estate) {
+        estates = estates.toMutableList().apply {
+            set(position, newEstate)
+        }
+        notifyItemChanged(position)
+    }
 
 }
 

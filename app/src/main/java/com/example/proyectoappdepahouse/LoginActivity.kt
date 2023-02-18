@@ -1,5 +1,6 @@
 package com.example.proyectoappdepahouse
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -50,6 +51,7 @@ class LoginActivity : AppCompatActivity() {
                     ).show()
                 }
                 else -> {
+
                     signIn(mEmail, mPassword)
 
                 }
@@ -156,4 +158,9 @@ class LoginActivity : AppCompatActivity() {
     companion object {
         private const val RC_SIGN_IN = 9001
     }
+
+    private val prefs by lazy {
+        getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+    }
+
 }

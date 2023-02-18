@@ -81,7 +81,8 @@ class CreateEstateActivity : AppCompatActivity() {
 
             b.progressBar.visibility = View.VISIBLE
             if (photoUri != null) {
-                val fileReference = storageReference.child(System.currentTimeMillis().toString())
+//                val fileReference = storageReference.child(System.currentTimeMillis().toString())
+                val fileReference = storageReference.child("images/" + System.currentTimeMillis().toString())
 
                 fileReference.putFile(photoUri!!)
                     .addOnSuccessListener {
@@ -138,6 +139,7 @@ class CreateEstateActivity : AppCompatActivity() {
 
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK && data != null && data.data != null) {
             photoUri = data.data!!
+            b.imgEstate.setImageURI(photoUri)
 
             Toast.makeText(
                 this@CreateEstateActivity,
@@ -245,6 +247,11 @@ class CreateEstateActivity : AppCompatActivity() {
 //        b.spinnerType.
 
 
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 
 }

@@ -1,5 +1,7 @@
 package com.example.proyectoappdepahouse
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -28,7 +30,7 @@ class ListHomeFragment : Fragment() {
     val db = FirebaseFirestore.getInstance()
     private lateinit var b: FragmentListHomeBinding
     private lateinit var lstEstate: ArrayList<Estate>
-    private lateinit var adapter: EstateAdapter
+    internal lateinit var adapter: EstateAdapter
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -174,6 +176,29 @@ class ListHomeFragment : Fragment() {
     private fun hideKeyboard() {
         hideSoftKeyboard(requireContext(), b.root)
     }
+
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == 1 && resultCode == Activity.RESULT_OK) {
+//            val updatedEstate = data?.getParcelableExtra<Estate>("updated_estate")
+            val updatedEstate = data?.getSerializableExtra("updated_estate") as? Estate
+
+            if (updatedEstate != null) {
+                // Replace the old estate with the updated one
+                val position = lstEstate.indexOfFirst { it.idestate == updatedEstate.idestate }
+                lstEstate[position] = updatedEstate
+
+                // Update the list adapter
+//                adapter.notifyItemChanged(position)
+                adapter.updateList(lstEstate)
+            }
+        }
+    }
+
+
+
 
 
 }
