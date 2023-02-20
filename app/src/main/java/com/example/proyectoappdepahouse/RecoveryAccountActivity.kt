@@ -30,6 +30,7 @@ class RecoveryAccountActivity : AppCompatActivity() {
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
                         val i = Intent(this, LoginActivity::class.java)
+                        Toast.makeText(this, "Revise su bandeja de correo electónico y cambie su contraseña", Toast.LENGTH_LONG).show()
                         startActivity(i)
                     } else {
                         Toast.makeText(this, "Ingrese un correo electrónico válido", Toast.LENGTH_SHORT).show()
