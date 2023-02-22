@@ -20,8 +20,9 @@ import com.google.firebase.ktx.Firebase
 
 class LoginActivity : AppCompatActivity() {
 
-    private lateinit var auth: FirebaseAuth
     private lateinit var b: ActivityLoginBinding
+
+    private lateinit var auth: FirebaseAuth
     private lateinit var clientGoogle: GoogleSignInClient
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -159,8 +160,5 @@ class LoginActivity : AppCompatActivity() {
         private const val RC_SIGN_IN = 9001
     }
 
-    private val prefs by lazy {
-        getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
-    }
 
 }

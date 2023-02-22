@@ -27,8 +27,8 @@ import com.google.firebase.ktx.Firebase
 
 class ListHomeFragment : Fragment() {
 
-    val db = FirebaseFirestore.getInstance()
     private lateinit var b: FragmentListHomeBinding
+    val db = FirebaseFirestore.getInstance()
     private lateinit var lstEstate: ArrayList<Estate>
     internal lateinit var adapter: EstateAdapter
 

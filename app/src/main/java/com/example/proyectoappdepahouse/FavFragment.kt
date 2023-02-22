@@ -16,8 +16,8 @@ import com.google.firebase.firestore.FirebaseFirestore
 
 class FavFragment : Fragment() {
 
-    val db = FirebaseFirestore.getInstance()
     private lateinit var b: FragmentFavBinding
+    val db = FirebaseFirestore.getInstance()
     private lateinit var lstEstate: ArrayList<Estate>
     private lateinit var adapter: EstateAdapter
 

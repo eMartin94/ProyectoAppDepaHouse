@@ -16,8 +16,8 @@ import java.util.regex.Pattern
 class CreateAccountActivity : AppCompatActivity() {
 
 //    private lateinit var db: FirebaseFirestore
-    private lateinit var auth: FirebaseAuth
     private lateinit var b: ActivityCreateAccountBinding
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

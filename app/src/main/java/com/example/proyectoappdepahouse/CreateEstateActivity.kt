@@ -24,9 +24,9 @@ class CreateEstateActivity : AppCompatActivity() {
 //    private var lstEstate = ArrayList<Estate>()
 //    private lateinit var adapter: EstateAdapter
 
-    val db = FirebaseFirestore.getInstance()
     private lateinit var b: ActivityCreateEstateBinding
 
+    val db = FirebaseFirestore.getInstance()
     private lateinit var storage: FirebaseFirestore
     private lateinit var storageReference: StorageReference
 
