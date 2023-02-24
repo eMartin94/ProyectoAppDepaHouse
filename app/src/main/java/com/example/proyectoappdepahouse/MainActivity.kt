@@ -133,10 +133,6 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-//        if (prefs.getBoolean("welcome_shown", false)) {
-//            b.welcome.visibility = View.GONE
-//        }
-
     }
 
     private fun replaceFragment(fragment: Fragment) {
@@ -182,7 +178,4 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-//    private val prefs by lazy {
-//        getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
-//    }
 }
