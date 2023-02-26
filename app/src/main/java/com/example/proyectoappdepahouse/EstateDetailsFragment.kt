@@ -1,6 +1,5 @@
 package com.example.proyectoappdepahouse
 
-import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -53,7 +52,6 @@ class EstateDetailsFragment : Fragment(), OnMapReadyCallback {
         b.txtDetailsLivingrooms.text = estate.livingroom
         b.txtDetailsKitchen.text = estate.kitchen
         b.txtDetailsPool.text = estate.pool
-//        b.txtDetailsLatlng.text = "${estate.location?.get("latitude")}, ${estate.location?.get("longitude")}"
         if (estate.photo != null) {
             Glide.with(this)
                 .load(estate.photo)
@@ -89,8 +87,6 @@ class EstateDetailsFragment : Fragment(), OnMapReadyCallback {
             val lat = location["latitude"] ?: 0.0
             val long = location["longitude"] ?: 0.0
             val latLng = LatLng(lat, long)
-    //        val location = LatLng(-12.09812, -77.03566)
-//            googleMap.addMarker(MarkerOptions().position(location).title("San Francisco"))
             googleMap.addMarker(MarkerOptions().position(latLng).title(nameLocation))
             googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 12f))
         }

@@ -9,21 +9,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.inputmethod.InputMethodManager
-import android.widget.Button
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.proyectoappdepahouse.adapter.EstateAdapter
 import com.example.proyectoappdepahouse.databinding.FragmentListHomeBinding
 import com.example.proyectoappdepahouse.model.Estate
-import com.google.android.gms.auth.api.signin.GoogleSignIn
-import com.google.android.gms.auth.api.signin.GoogleSignInClient
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions
-import com.google.android.gms.maps.model.LatLng
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.ktx.Firebase
 
 class ListHomeFragment : Fragment() {
 
@@ -47,14 +38,6 @@ class ListHomeFragment : Fragment() {
         b = FragmentListHomeBinding.inflate(inflater, container, false)
         val view = b.root
 
-//        b.btnBuscar.setOnClickListener {
-//            val searchTerm = b.edtBuscar.text.toString().trim()
-//            if (searchTerm.isNotEmpty()) {
-//                search(searchTerm)
-//            } else {
-//                getAll()
-//            }
-//        }
         b.cateHome.setOnClickListener {
 
             val bundle = Bundle()
@@ -130,10 +113,8 @@ class ListHomeFragment : Fragment() {
                         item.name = doc["name"].toString()
                         item.district = doc["district"].toString()
                         item.city = doc["city"].toString()
-//                        item.location = doc["location"].toString()
                         item.price = (doc["price"] as? Double) ?: 0.0
                         item.photo = doc["photo"].toString()
-
                         item.location = doc["location"] as Map<String, Double>
 
                         db.collection("users").document(uid)
@@ -161,8 +142,6 @@ class ListHomeFragment : Fragment() {
             if (estate.name?.contains(searchTerm, true) == true ||
                 estate.city?.contains(searchTerm, true) == true ||
                 estate.district?.contains(searchTerm, true) == true ||
-//                estate.location?.contains(searchTerm, true) == true ||
-//                estate.location?.latitude == searchTermLatitude && estate.location?.longitude == searchTermLongitude ||
                 estate.type?.contains(searchTerm, true) == true
             ) {
                 filteredList.add(estate)
@@ -182,7 +161,6 @@ class ListHomeFragment : Fragment() {
         super.onActivityResult(requestCode, resultCode, data)
 
         if (requestCode == 1 && resultCode == Activity.RESULT_OK) {
-//            val updatedEstate = data?.getParcelableExtra<Estate>("updated_estate")
             val updatedEstate = data?.getSerializableExtra("updated_estate") as? Estate
 
             if (updatedEstate != null) {
@@ -191,7 +169,6 @@ class ListHomeFragment : Fragment() {
                 lstEstate[position] = updatedEstate
 
                 // Update the list adapter
-//                adapter.notifyItemChanged(position)
                 adapter.updateList(lstEstate)
             }
         }

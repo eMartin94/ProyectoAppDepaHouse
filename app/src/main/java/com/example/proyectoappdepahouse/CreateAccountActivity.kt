@@ -15,7 +15,7 @@ import java.util.regex.Pattern
 
 class CreateAccountActivity : AppCompatActivity() {
 
-//    private lateinit var db: FirebaseFirestore
+    //    private lateinit var db: FirebaseFirestore
     private lateinit var b: ActivityCreateAccountBinding
     private lateinit var auth: FirebaseAuth
 
@@ -43,19 +43,27 @@ class CreateAccountActivity : AppCompatActivity() {
             val user = User(mNameUser, mEmail, mPassword)
 
             if (mNameUser.isEmpty() || mNameUser.length < 5) {
-                Toast.makeText(baseContext, "Ingrese un usuario válido",
-                    Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    baseContext, "Ingrese un usuario válido",
+                    Toast.LENGTH_SHORT
+                ).show()
 
             } else if (mEmail.isEmpty() || !Patterns.EMAIL_ADDRESS.matcher(mEmail).matches()) {
-                Toast.makeText(baseContext, "Ingrese un correo válido",
-                    Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    baseContext, "Ingrese un correo válido",
+                    Toast.LENGTH_SHORT
+                ).show()
 
             } else if (mPassword.isEmpty() || !passwordRegex.matcher(mPassword).matches()) {
-                Toast.makeText(baseContext, "La contraseña es debil",
-                    Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    baseContext, "La contraseña es debil",
+                    Toast.LENGTH_SHORT
+                ).show()
             } else if (mPassword != mRepeatPassword) {
-                Toast.makeText(baseContext, "Confirma la contraseña",
-                    Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    baseContext, "Confirma la contraseña",
+                    Toast.LENGTH_SHORT
+                ).show()
             } else {
 
                 createAccount(user)
@@ -73,15 +81,6 @@ class CreateAccountActivity : AppCompatActivity() {
             startActivity(i)
         }
     }
-
-//    public override fun onStart() {
-//        super.onStart()
-//
-//        val currentUser = auth.currentUser
-//        if(currentUser != null){
-//            reload();
-//        }
-//    }
 
     private fun clearFields() {
 
@@ -106,13 +105,21 @@ class CreateAccountActivity : AppCompatActivity() {
                     db.collection("users").document(currentUser!!.uid)
                         .set(newUser)
                         .addOnSuccessListener {
-                            Toast.makeText(this, "Usuario creado satisfactoriamente", Toast.LENGTH_LONG).show()
+                            Toast.makeText(
+                                this,
+                                "Usuario creado satisfactoriamente",
+                                Toast.LENGTH_LONG
+                            ).show()
                         }
                         .addOnFailureListener {
                             Toast.makeText(this, "Error al crear usuario", Toast.LENGTH_LONG).show()
                         }
                 } else {
-                    Toast.makeText(this, "El correo electrónico ya se encuentra registrado", Toast.LENGTH_LONG).show()
+                    Toast.makeText(
+                        this,
+                        "El correo electrónico ya se encuentra registrado",
+                        Toast.LENGTH_LONG
+                    ).show()
                 }
             }
     }

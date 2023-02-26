@@ -1,37 +1,22 @@
 package com.example.proyectoappdepahouse
 
-import android.animation.AnimatorSet
-import android.animation.ObjectAnimator
 import android.content.Intent
 
 import android.os.Bundle
-import android.os.Handler
-import android.util.Log
 import android.view.View
-import android.view.animation.AnimationUtils
-import android.widget.SearchView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.example.proyectoappdepahouse.adapter.EstateAdapter
 import com.example.proyectoappdepahouse.databinding.ActivityMainBinding
-import com.example.proyectoappdepahouse.model.Estate
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
-import com.google.firebase.storage.FirebaseStorage
-import com.google.firebase.storage.StorageReference
-import android.content.Context
-import androidx.core.content.edit
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
     private lateinit var b: ActivityMainBinding
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -59,7 +44,7 @@ class MainActivity : AppCompatActivity() {
 
                 currentUser.displayName ?: ""
             }
-//            b.txtNameuser.text = "Bienvenido(a) $name"
+
             Toast.makeText(this, "Bienvenido(a) $name", Toast.LENGTH_LONG).show()
         }
 
@@ -97,18 +82,18 @@ class MainActivity : AppCompatActivity() {
                             bundle.putString("photoUrl", profileImageUri.toString())
                         }
 
-                        db.collection("users").document(uid).get().addOnSuccessListener {
-                                documentSnapshot ->
-                            if (documentSnapshot.exists()) {
-                                val username = documentSnapshot.getString("nameUser")
-                                val email = documentSnapshot.getString("email")
-                                bundle.putString("nameUser", username)
-                                bundle.putString("email", email)
+                        db.collection("users").document(uid).get()
+                            .addOnSuccessListener { documentSnapshot ->
+                                if (documentSnapshot.exists()) {
+                                    val username = documentSnapshot.getString("nameUser")
+                                    val email = documentSnapshot.getString("email")
+                                    bundle.putString("nameUser", username)
+                                    bundle.putString("email", email)
+                                }
+                                val fragment = ProfileFragment()
+                                fragment.arguments = bundle
+                                replaceFragment(fragment)
                             }
-                            val fragment = ProfileFragment()
-                            fragment.arguments = bundle
-                            replaceFragment(fragment)
-                        }
                     }
                 }
 
@@ -142,29 +127,6 @@ class MainActivity : AppCompatActivity() {
         fragmentTransaction.replace(R.id.fragment_Container, fragment)
         fragmentTransaction.commit()
     }
-
-//    override fun onPause() {
-//        super.onPause()
-//
-//        val layWelcome = ObjectAnimator.ofFloat(b.welcome, "translationY", 0f, -b.fragmentContainer.height.toFloat())
-//        val layFragmet = ObjectAnimator.ofFloat(b.fragmentContainer, "translationY", b.welcome.height.toFloat(), 0f)
-//        if (b.welcome.visibility != View.GONE) {
-//
-//            val animation = AnimationUtils.loadAnimation(this, android.R.anim.fade_out)
-//            b.welcome.startAnimation(animation)
-//            Handler().postDelayed({
-//                b.welcome.visibility = View.GONE
-//
-//                // Animar layWelcome y layFragment después de ocultar b.welcome
-//                val set = AnimatorSet()
-//                set.playTogether(layWelcome, layFragmet)
-//                set.duration = 600
-//                set.start()
-//            }, 2000)
-//
-//        }
-//    }
-
 
     fun hideKeyboard() {
         hideSoftKeyboard(this, findViewById(android.R.id.content))

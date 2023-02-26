@@ -10,7 +10,6 @@ import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.example.proyectoappdepahouse.databinding.FragmentProfileBinding
 import com.google.android.gms.auth.api.signin.GoogleSignIn
-import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
 
@@ -60,7 +59,8 @@ class ProfileFragment : Fragment() {
     private fun signOut() {
         val auth = FirebaseAuth.getInstance()
         auth.signOut()
-        val clientGoogle = GoogleSignIn.getClient(requireActivity(), GoogleSignInOptions.DEFAULT_SIGN_IN)
+        val clientGoogle =
+            GoogleSignIn.getClient(requireActivity(), GoogleSignInOptions.DEFAULT_SIGN_IN)
         clientGoogle.signOut().addOnCompleteListener {
             val intent = Intent(requireContext(), LoginActivity::class.java)
             startActivity(intent)

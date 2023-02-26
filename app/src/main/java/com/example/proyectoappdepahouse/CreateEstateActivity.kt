@@ -20,10 +20,6 @@ import java.util.UUID
 
 class CreateEstateActivity : AppCompatActivity() {
 
-//    private lateinit var auth: FirebaseAuth
-//    private var lstEstate = ArrayList<Estate>()
-//    private lateinit var adapter: EstateAdapter
-
     private lateinit var b: ActivityCreateEstateBinding
 
     val db = FirebaseFirestore.getInstance()
@@ -60,13 +56,11 @@ class CreateEstateActivity : AppCompatActivity() {
         spinnerType.adapter = adapter
 
         b.btnAdd.setOnClickListener {
-            //referencciar los cma
             val nameState = b.edtNameEstate.text.toString().trim()
             val city = b.edtCity.text.toString().trim()
             val district = b.edtDistrict.text.toString().trim()
             val latitude = b.edtLat.text.toString().trim()
             val longitude = b.edtLng.text.toString().trim()
-//            val type = b.edtType.text.toString().trim()
             val type = spinnerType.selectedItem.toString().trim()
             val price = b.edtPrice.text.toString()
 
@@ -82,7 +76,8 @@ class CreateEstateActivity : AppCompatActivity() {
             b.progressBar.visibility = View.VISIBLE
             if (photoUri != null) {
 //                val fileReference = storageReference.child(System.currentTimeMillis().toString())
-                val fileReference = storageReference.child("images/" + System.currentTimeMillis().toString())
+                val fileReference =
+                    storageReference.child("images/" + System.currentTimeMillis().toString())
 
                 fileReference.putFile(photoUri!!)
                     .addOnSuccessListener {
@@ -151,16 +146,12 @@ class CreateEstateActivity : AppCompatActivity() {
 
     private fun postEstate(photoUrl: String = "") {
 
-//        val types = resources.getStringArray(R.array.types)
-
         val nameState = b.edtNameEstate.text.toString().trim()
         val city = b.edtCity.text.toString().trim()
         val district = b.edtDistrict.text.toString().trim()
         val latitude = b.edtLat.text.toString().trim()
         val longitude = b.edtLng.text.toString().trim()
-//        val type = b.edtType.text.toString().trim()
         val type = spinnerType.selectedItem.toString().trim()
-//        val type = types[b.spinnerType.selectedItemPosition]
         val price = b.edtPrice.text.toString()
 
         val dimension = b.edtDimension.text.toString().trim()

@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.proyectoappdepahouse.adapter.CategorieEstAdapter
 import com.example.proyectoappdepahouse.databinding.FragmentCategorieBinding
 import com.example.proyectoappdepahouse.model.Estate
-import com.google.android.gms.maps.model.LatLng
 import com.google.firebase.firestore.FirebaseFirestore
 
 class CategorieFragment : Fragment() {
@@ -25,8 +24,7 @@ class CategorieFragment : Fragment() {
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
         b = FragmentCategorieBinding.inflate(inflater, container, false)
@@ -49,9 +47,7 @@ class CategorieFragment : Fragment() {
 
         lstEstate = ArrayList()
         adapter = CategorieEstAdapter(lstEstate)
-        db.collection("estate")
-            .get()
-            .addOnSuccessListener { documents ->
+        db.collection("estate").get().addOnSuccessListener { documents ->
                 for (doc in documents) {
                     if (doc["type"] == type) {
                         val item = doc.toObject(Estate::class.java)
@@ -71,8 +67,6 @@ class CategorieFragment : Fragment() {
                     }
                 }
             }
-
-
     }
 
 

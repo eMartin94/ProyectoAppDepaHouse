@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.example.proyectoappdepahouse.databinding.ActivityRecoveryAccountBinding
-import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -30,10 +29,18 @@ class RecoveryAccountActivity : AppCompatActivity() {
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
                         val i = Intent(this, LoginActivity::class.java)
-                        Toast.makeText(this, "Revise su bandeja de correo electónico y cambie su contraseña", Toast.LENGTH_LONG).show()
+                        Toast.makeText(
+                            this,
+                            "Revise su bandeja de correo electónico y cambie su contraseña",
+                            Toast.LENGTH_LONG
+                        ).show()
                         startActivity(i)
                     } else {
-                        Toast.makeText(this, "Ingrese un correo electrónico válido", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(
+                            this,
+                            "Ingrese un correo electrónico válido",
+                            Toast.LENGTH_SHORT
+                        ).show()
                     }
                 }
 

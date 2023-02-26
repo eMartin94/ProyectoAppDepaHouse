@@ -57,14 +57,16 @@ class UpdateEstateFragment : Fragment() {
 
         spinnerType = b.spinnerType
         val typesArray = resources.getStringArray(R.array.types)
-        val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, typesArray)
+        val adapter =
+            ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, typesArray)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinnerType.adapter = adapter
 
         if (estateId != null) {
             getEstate(estateId!!)
         } else {
-            Toast.makeText(requireContext(), "Error: Inmueble no encontrado", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), "Error: Inmueble no encontrado", Toast.LENGTH_SHORT)
+                .show()
         }
 
         b.btnOpenGallery.setOnClickListener {
@@ -112,7 +114,11 @@ class UpdateEstateFragment : Fragment() {
 
                     populateFields()
                 } else {
-                    Toast.makeText(requireContext(), "Error: Inmueble no encontrado", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        requireContext(),
+                        "Error: Inmueble no encontrado",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
             }
             .addOnFailureListener { exception ->
@@ -125,6 +131,7 @@ class UpdateEstateFragment : Fragment() {
     }
 
     private fun populateFields() {
+
         b.edtNameEstate.setText(estate.name)
         b.edtCity.setText(estate.city)
         b.edtDistrict.setText(estate.district)
@@ -156,7 +163,6 @@ class UpdateEstateFragment : Fragment() {
 
     private fun updateEstate() {
 
-
         val nameState = b.edtNameEstate.text.toString().trim()
         val city = b.edtCity.text.toString().trim()
         val district = b.edtDistrict.text.toString().trim()
@@ -174,7 +180,11 @@ class UpdateEstateFragment : Fragment() {
         val pool = b.edtPool.text.toString().trim()
 
         if (nameState.isEmpty() || city.isEmpty() || district.isEmpty() || price == null) {
-            Toast.makeText(requireContext(), "Debe completar todos los campos obligatorios", Toast.LENGTH_SHORT).show()
+            Toast.makeText(
+                requireContext(),
+                "Debe completar todos los campos obligatorios",
+                Toast.LENGTH_SHORT
+            ).show()
             return
         }
 
@@ -222,7 +232,11 @@ class UpdateEstateFragment : Fragment() {
                 }
             }
             .addOnFailureListener {
-                Toast.makeText(requireContext(), "Error al subir imagen: ${it.message}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    requireContext(),
+                    "Error al subir imagen: ${it.message}",
+                    Toast.LENGTH_SHORT
+                ).show()
             }
     }
 
@@ -233,7 +247,6 @@ class UpdateEstateFragment : Fragment() {
             .addOnSuccessListener {
                 Toast.makeText(requireContext(), "Inmueble actualizado", Toast.LENGTH_SHORT).show()
 
-//                finish()
             }
             .addOnFailureListener { exception ->
                 Toast.makeText(
